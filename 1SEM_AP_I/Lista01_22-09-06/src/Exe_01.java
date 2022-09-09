@@ -12,6 +12,6 @@ public class Exe_01 {
 
         float area = x * y;
 
-        System.out.printf("cômodo que ");
+        System.out.printf("O cômodo de %.2f X %.2f tem area de %.2f m²", x, y, (x * y));
     }
 }
