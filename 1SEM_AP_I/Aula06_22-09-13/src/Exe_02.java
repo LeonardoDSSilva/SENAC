@@ -12,20 +12,20 @@ public class Exe_02 {
         System.out.print("Informe o 2º nome: ");
         nome03 = iScanner.next().toUpperCase();
 
-        if (nome01.compareTo(nome02) < 0 && nome01.compareTo(nome03) < 0 && nome01.compareTo(nome03) < 0) {
-            if (nome02.compareTo(nome03) < 0) {
-                System.out.printf("%s, %s, %s", nome03, nome02, nome01);
+        if (nome01.compareTo(nome02) <= 0 && nome01.compareTo(nome03) <= 0 && nome01.compareTo(nome03) <= 0) {
+            if (nome02.compareTo(nome03) <= 0) {
+                System.out.printf("%s, %s, %s", nome01, nome02, nome03);
             } else {
                 System.out.printf("%s, %s, %s", nome01, nome03, nome02);
             }
-        } else if (nome02.compareTo(nome01) < 0 && nome02.compareTo(nome03) < 0 && nome02.compareTo(nome03) < 0) {
-            if (nome01.compareTo(nome03) < 0) {
+        } else if (nome02.compareTo(nome01) <= 0 && nome02.compareTo(nome03) <= 0 && nome02.compareTo(nome03) <= 0) {
+            if (nome01.compareTo(nome03) <= 0) {
                 System.out.printf("%s, %s, %s", nome02, nome01, nome03);
             } else {
                 System.out.printf("%s, %s, %s", nome02, nome03, nome01);
             }
-        } else if (nome03.compareTo(nome01) < 0 && nome03.compareTo(nome02) < 0 && nome03.compareTo(nome02) < 0) {
-            if (nome01.compareTo(nome02) < 0) {
+        } else if (nome03.compareTo(nome01) <= 0 && nome03.compareTo(nome02) <= 0 && nome03.compareTo(nome02) <= 0) {
+            if (nome01.compareTo(nome02) <= 0) {
                 System.out.printf("%s, %s, %s", nome03, nome01, nome02);
             } else {
                 System.out.printf("%s, %s, %s", nome03, nome02, nome01);
