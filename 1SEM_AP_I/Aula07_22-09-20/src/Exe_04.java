@@ -9,18 +9,21 @@ usuário,
 public class Exe_04 {
 
   public static void main(String[] args) {
+    int num, soma = 0;
+    String continuar, ver;
     Scanner iScanner = new Scanner(System.in);
-    int num;
-    System.out.print("Informe um numero: ");
-    num = iScanner.nextInt();
-    String continuar = "S", ver;
+
     do {
-      num++;
+      System.out.print("Informe um numero: ");
+      num = iScanner.nextInt();
+
+      soma += num;
+
       System.out.print("Deseja ver o resultado ? (S-Sim/ N-Não): ");
       ver = iScanner.next().toUpperCase();
-      
+
       if (ver.equals("S")) {
-        System.out.println(num);
+        System.out.println(soma);
       }
 
       System.out.print("Deseja continuar ? (S-Sim/ N-Não): ");
