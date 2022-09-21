@@ -23,7 +23,7 @@ public class Exe_04 {
       } */
       while (ver.equalsIgnoreCase("S")) {
         System.out.println(num);
-        // ver = "N";
+        ver = "N";
       }
 
       System.out.print("Deseja continuar ? (S-Sim/ N-Não): ");
