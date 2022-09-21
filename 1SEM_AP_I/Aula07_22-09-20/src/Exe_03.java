@@ -3,6 +3,7 @@ public class Exe_03 {
 
   public static void main(String[] args) {
     int num = 2;
+    System.out.println();
     do {
       for (int i = 0; i <= 10; i++) {
         System.out.printf("%d * %d = %d \n", num, i, (num * i));

@@ -9,7 +9,7 @@ public class Exe_04 {
         nome02 = iScanner.nextLine();
         System.out.print("Informe o Terceiro Nome: ");
         nome03 = iScanner.nextLine();
-        if (nome01 ) {
+        if () {
             
         } else {
             
