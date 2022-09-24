@@ -1,0 +1,357 @@
+        //Estruturas de Dados
+        //Array
+        int[] array = new int[10];
+        array[0] = 1;
+        array[1] = 2;
+        array[2] = 3;
+
+        //Matriz
+        int[][] matriz = new int[10][10];
+        matriz[0][0] = 1;
+        matriz[0][1] = 2;
+
+        //ArrayList
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        arrayList.add(1);
+
+        //HashMap
+        HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
+
+        //Funções
+        //Função sem retorno
+        public void funcao() {
+            //Código
+        }
+
+        //Função com retorno
+        public int funcao() {
+            //Código
+            return 1;
+        }
+
+        //Função com parâmetros
+        public int funcao(int num01, int num02) {
+            //Código
+            return num01 + num02;
+        }
+
+        //Função com retorno e parâmetros
+        public int funcao(int num01, int num02) {
+            //Código
+            return num01 + num02;
+        }
+
+        //Função recursiva
+        public int funcao(int num01, int num02) {
+            //Código
+            return num01 + funcao(num01, num02);
+        }
+
+        //Função anônima
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //Código
+            }
+        }).start();
+
+        //Função Lambda
+        new Thread(() -> {
+            //Código
+        }).start();
+
+        //Função Lambda com parâmetros
+        new Thread((String nome) -> {
+            //Código
+        }).start();
+
+        //Função Lambda com retorno
+        new Thread(() -> {
+            //Código
+            return 1;
+        }).start();
+
+        //Função Lambda com retorno e parâmetros
+        new Thread((String nome) -> {
+            //Código
+            return 1;
+        }).start();
+
+        //Função Lambda recursiva
+        new Thread(() -> {
+            //Código
+            return 1 + funcao();
+        }).start();
+
+        //Função Lambda com retorno e parâmetros
+        new Thread((String nome) -> {
+            //Código
+            return 1 + funcao();
+        }).start();
+
+
+        //Classes
+        public class Classe {
+            //Atributos
+            int num01;
+            int num02;
+
+            //Construtor
+            public Classe(int num01, int num02) {
+                this.num01 = num01;
+                this.num02 = num02;
+            }
+
+            //Métodos
+            public int funcao() {
+                //Código
+                return num01 + num02;
+            }
+        }
+
+        //Herança
+        public class Classe extends ClassePai {
+            //Atributos
+            int num01;
+            int num02;
+
+            //Construtor
+            public Classe(int num01, int num02) {
+                super(num01, num02);
+                this.num01 = num01;
+                this.num02 = num02;
+            }
+
+            //Métodos
+            public int funcao() {
+                //Código
+                return num01 + num02;
+            }
+        }
+
+        //Polimorfismo
+        public class Classe {
+            //Atributos
+            int num01;
+            int num02;
+
+            //Construtor
+            public Classe(int num01, int num02) {
+                this.num01 = num01;
+                this.num02 = num02;
+            }
+
+            //Métodos
+            public int funcao() {
+                //Código
+                return num01 + num02;
+            }
+        }
+
+        public class ClasseFilha extends Classe {
+            //Atributos
+            int num01;
+            int num02;
+
+            //Construtor
+            public ClasseFilha(int num01, int num02) {
+                super(num01, num02);
+                this.num01 = num01;
+                this.num02 = num02;
+            }
+
+            //Métodos
+            public int funcao() {
+                //Código
+                return num01 + num02;
+            }
+        }
+
+        //Interface
+        public interface Interface {
+            //Atributos
+            int num01 = 1;
+            int num02 = 2;
+
+            //Métodos
+            public int funcao();
+        }
+
+        //Implementação
+        public class Classe implements Interface {
+            //Atributos
+            int num01;
+            int num02;
+
+            //Construtor
+            public Classe(int num01, int num02) {
+                this.num01 = num01;
+                this.num02 = num02;
+            }
+
+            //Métodos
+            public int funcao() {
+                //Código
+                return num01 + num02;
+            }
+        }
+
+        //Exceções
+        try {
+            //Código
+        } catch (Exception e) {
+            //Código
+        } finally {
+            //Código
+        }
+
+        //Exceção personalizada
+        public class MinhaExcecao extends Exception {
+            public MinhaExcecao(String mensagem) {
+                super(mensagem);
+            }
+        }
+
+        //Exceção personalizada com construtor
+
+        public class MinhaExcecao extends Exception {
+            public MinhaExcecao(String mensagem) {
+                super(mensagem);
+            }
+
+            public MinhaExcecao(String mensagem, Throwable causa) {
+                super(mensagem, causa);
+            }
+        }
+
+        //Exceção personalizada com construtor e método
+
+        public class MinhaExcecao extends Exception {
+            public MinhaExcecao(String mensagem) {
+                super(mensagem);
+            }
+
+            public MinhaExcecao(String mensagem, Throwable causa) {
+                super(mensagem, causa);
+            }
+
+            public String getMensagem() {
+                return super.getMessage();
+            }
+        }
+
+        //Exceção personalizada com construtor, método e atributo
+
+        public class MinhaExcecao extends Exception {
+            private String mensagem;
+
+            public MinhaExcecao(String mensagem) {
+                super(mensagem);
+                this.mensagem = mensagem;
+            }
+
+            public MinhaExcecao(String mensagem, Throwable causa) {
+                super(mensagem, causa);
+                this.mensagem = mensagem;
+            }
+
+            public String getMensagem() {
+                return mensagem;
+            }
+        }
+
+        //Exceção personalizada com construtor, método, atributo e classe
+
+        public class MinhaExcecao extends Exception {
+            private String mensagem;
+
+            public MinhaExcecao(String mensagem) {
+                super(mensagem);
+                this.mensagem = mensagem;
+            }
+
+            public MinhaExcecao(String mensagem, Throwable causa) {
+                super(mensagem, causa);
+                this.mensagem = mensagem;
+            }
+
+            public String getMensagem() {
+                return mensagem;
+            }
+
+            public static void main(String[] args) {
+                //Código
+            }
+        }
+
+        //Exceção personalizada com construtor, método, atributo, classe e método
+
+        public class MinhaExcecao extends Exception {
+            private String mensagem;
+
+            public MinhaExcecao(String mensagem) {
+                super(mensagem);
+                this.mensagem = mensagem;
+            }
+
+            public MinhaExcecao(String mensagem, Throwable causa) {
+                super(mensagem, causa);
+                this.mensagem = mensagem;
+            }
+
+            public String getMensagem() {
+                return mensagem;
+            }
+
+            public static void main(String[] args) {
+                //Código
+            }
+
+            public static void funcao() {
+                //Código
+            }
+        }
+
+
+
+
+        //Condições
+        if (condicao) {
+            //Código
+        } else if (condicao) {
+            //Código
+        } else {
+            //Código
+        }
+
+        //Switch
+        switch (variavel) {
+            case 1:
+                //Código
+                break;
+            case 2:
+                //Código
+                break;
+            default:
+                //Código
+                break;
+        }
+
+        //Laços
+        for (int i = 0; i < 10; i++) {
+            //Código
+        }
+
+        while (condicao) {
+            //Código
+        }
+
+        do {
+            //Código
+        } while (condicao);
+
+
+	        //For Each
+        for (int i : array) {
+            //Código
+        }

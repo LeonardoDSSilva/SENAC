@@ -10,19 +10,25 @@ public class DeJava { // Deve ter o mesmo nome do arquivo
         // javac compila o código fonte e gera um arquivo .class
         // java executa o arquivo .class
         
-        //Escopo de Variáveis
+        //Escopo de Variáveis é 
         int inteiro = 5;
-        float real = 2.5;
+        double real = 2.5;
         String palavra = "Palavra";
         char letra = 'a';
-        boolean verdadeiro = true;
-        boolean falso = false;
+        boolean verdadeiro = true; // ou false
+
+        //Constantes
+        final int inteiroConstante = 5;
+        final double PI = 3.14;
+
 
         //Prints
+        System.out.println(); //Pula uma linha
         System.out.println("Inteiro: " + inteiro); //Printa o valor da variável inteiro e pula uma linha concatenando com o número
         System.out.print("Real: " + real); //Printa o valor da variável real na mesma linha
-        System.out.printf("Palavra: %s, Letra: %c, Verdadeiro: %b, Falso: %b", palavra, letra, verdadeiro, falso); //Printa o valor das variáveis palavra, letra, verdadeiro e falso na mesma linha
-        System.out.println(); //Pula uma linha
+        System.out.printf("Palavra: %s, Letra: %c, inteiro: %d, real: %d, verdadeiro: %b", palavra, letra, inteiro, real, verdadeiro); 
+        //Printa as variáveis com formatação %s = String, %c = char, %d = int, %d = double, %b = boolean
+        //Printa o valor das variáveis palavra, letra, inteiro, real, verdadeiro na mesma linha
 
         // \n //Pula uma linha
         // \t //Tabula
@@ -38,11 +44,11 @@ public class DeJava { // Deve ter o mesmo nome do arquivo
         Scanner iScanner = new Scanner(System.in); //Instancia um objeto da classe Scanner
 
         //Entrada de dados
-        variavel = iScanner.next(); // Captura a primeira letra da palavra (ex: "Palavra" = "P")
-        valiavel = iScanner.nextLine(); // Captura a mensagem digitada pelo usuário (ex: "Palavra" = "Palavra")
-        num01 = iScanner.nextInt(); // Captura um numero inteiro (ex: "5" = 5) 
-        num02 = iScanner.nextFloat(); // Captura um numero real (float) com ponto flutuante (ex: "2.5" = 2.5)
-        condicao = iScanner.nextBoolean(); // Captura um valor booleano (true/false)
+        letra = iScanner.next(); // Captura a primeira letra da palavra (ex: "Palavra" = "P")
+        palavra = iScanner.nextLine(); // Captura a mensagem digitada pelo usuário (ex: "Palavra" = "Palavra")
+        inteiro = iScanner.nextInt(); // Captura um numero inteiro (ex: "5" = 5) 
+        real = iScanner.nextFloat(); // Captura um numero real (float) com ponto flutuante (ex: "2.5" = 2.5)
+        verdadeiro = iScanner.nextBoolean(); // Captura um valor booleano (true/false)
 
         //Operadores Aritmeticos
         soma = num01 + num02;
@@ -50,6 +56,9 @@ public class DeJava { // Deve ter o mesmo nome do arquivo
         multiplicacao = num01 * num02;
         divisao = num01 / num02;
         resto = num01 % num02;
+
+        pemdas = (num01 + num02) * num03 / num04 % num05; 
+        //Parênteses, Expoentes, Multiplicação e Divisão (da esquerda para a direita), Adição e Subtração (da esquerda para a direita)
         
         //Operadores Relacionais
         igual = num01 == num02;
