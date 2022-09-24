@@ -33,11 +33,12 @@ public class DeJava { // Deve ter o mesmo nome do arquivo
         // \n //Pula uma linha
         // \t //Tabula
 
-
         // Comentário de uma linha
-        /*
 
-        Comentário de várias linhas
+        /**
+        Comentário
+        de várias
+        linhas
         */
 
         //Scanner
@@ -92,6 +93,18 @@ public class DeJava { // Deve ter o mesmo nome do arquivo
             //Código
         }
 
+        //Encadeamento de IF
+        if (condicao) {
+            //Código
+            if (condicao) {
+                //Código
+            } else {
+                //Código
+            }
+        } else {
+            //Código
+        }
+
         switch (variavel) { //Verifica o valor da variável e executa o bloco de código correspondente
             case 1: //Se a variável for igual a 1, executa o bloco de código
                 //Código
@@ -106,21 +119,69 @@ public class DeJava { // Deve ter o mesmo nome do arquivo
 
         //Estruturas de Repetição
         
-        //While - Enquanto
+        //While - Enquanto entrar no laço,  primeiro tem que uma condição antes de executar o bloco de código caso a condição seja verdadeira entra no laço
         while (condicao) { //Enquanto a condição for verdadeira, executa o bloco de código
             //Código
         }
+        //Exemplo
 
-        //Do While - Faça Enquanto (Executa o bloco de código pelo menos uma vez)
+        senha = 1234;
+        System.out.println("Digite a senha: ");
+        int senhaDigitada = iScanner.nextInt(); // For verdadeira não entra no laço caso seja falsa entra no laço
+        while (senhaDigitada != senha) {
+            System.out.println("Senha incorreta! Digite novamente: ");
+            senhaDigitada = iScanner.nextInt();
+        }
+
+        //Do While - Primeiro executa o bloco de código e depois verifica a condição
         do {
             //Código
         } while (condicao); //Enquanto a condição for verdadeira, executa o bloco de código
+
+        //Exemplo
+        senha = 1234;
+        do {
+            System.out.println("Digite a senha: ");
+            senhaDigitada = iScanner.nextInt();
+        } while (senhaDigitada != senha);
+        // Pergunta primeiro e depois verifica a condição se for verdadeira continua perguntando se for falsa sai do laço
+        
 
         //For - Para 
         for (int i = 0; i < 10; i++) { //Executa o bloco de código 10 vezes (0 a 9)
             //Código
         }
+        //Exemplo
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+        } //Printa os números de 0 a 9 e sai do laço quando i for igual a 10
+
+
+        //Tratamento de Váriaveis
+        String nome1 = "João";
+        String nomeMaiusculo = nome1.toUpperCase(); //Transforma a String em maiúsculo
+        String nomeMinusculo = nome1.toLowerCase(); //Transforma a String em minúsculo
+
+        //Comparação de Strings
+        String nome2 = "Lucas";
+        String nome3 = "João";
+
+        nome1 == nome2; //Retorna falso
+        nome1 == nome3; //Retorna verdadeiro
+        nome1.equals(nome2); //Retorna falso
+        nome1.equals(nome3); //Retorna verdadeiro
+
+        System.out.print("Informe o 1º nome: ");
+        nome01 = iScanner.next().toUpperCase(); // Captura a primeira letra da palavra e transforma em maiúsculo (ex: "João" = "J")
+        System.out.print("Informe o 2º nome: ");
+        nome02 = iScanner.next().toUpperCase(); // Captura a primeira letra da palavra e transforma em maiúsculo (ex: lucas" = "L")
+
+        nome01 = 'J';
+        nome02 = 'L';
+        nome01.compareTo(nome02); //Retorna -1 (J é menor que L)
+        nome01.compareTo(nome01); //Retorna 0 (J é igual a J)
+        nome02.compareTo(nome01); //Retorna 1 (L é maior que J)
+        //Retorna 0 se as Strings forem iguais, -1 se a primeira String for menor que a segunda e 1 se a primeira String for maior que a segunda
 
     }
-    
 }
