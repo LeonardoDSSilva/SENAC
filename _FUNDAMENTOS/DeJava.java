@@ -1,8 +1,9 @@
 import java.util.Scanner; // importa a classe Scanner responsável por ler dados do teclado
 
 /**
- * DeJava
+ * ESTE ARQUIVO NÃO É PARA SER EXECUTADO/COMPILADO
  */
+
 public class DeJava { // Deve ter o mesmo nome do arquivo
     public static void main(String[] args) { // 
     
