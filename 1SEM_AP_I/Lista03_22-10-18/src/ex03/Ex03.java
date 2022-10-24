@@ -1,11 +1,10 @@
 package ex03;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Ex03 {
 	public static void main(String[] args) {
-		int corredor, produto;
+		int corredor;
 		double quantidade, valor, carrinho = 0;
 		String encerrar = "", produtoEscholhido, grandeza;
 
@@ -21,7 +20,7 @@ public class Ex03 {
 			System.out.println("1 - Corredor A");
 			System.out.println("2 - Corredor B");
 			System.out.println("3 - Corredor C");
-
+			System.out.print("Informe: ");
 			corredor = iScanner.nextInt();
 
 			produtoEscholhido = exibirCorredor(corredor);
@@ -50,7 +49,7 @@ public class Ex03 {
 					carrinho += valor;
 				}
 
-				nota = new Mecardoria(produtoEscholhido, quantidade, valor, grandeza);
+				nota = new Mecardoria(produtoEscholhido, quantidade, (valor/quantidade), grandeza);
 				NotaFiscal.adicionarNota(nota);
 
 				System.out.println("Deseja continuar comprando? (S/N)");
@@ -59,14 +58,12 @@ public class Ex03 {
 
 		} while (!encerrar.equals("N"));
 
+		iScanner.close();
+
 		System.out.print("\033[H\033[2J");  
         System.out.flush();
 
-		System.out.println(NotaFiscal.exibirNota());
-
-		System.out.println("------------------------------------------");
-		System.out.println("Valor total:                R$ " + carrinho);
-		
+		NotaFiscal.exibirNota(carrinho);
 	}
 	
 	private static String exibirCorredor(int corredor) {
@@ -170,4 +167,5 @@ public class Ex03 {
 		}
 		return "";
 	}
+	// Meio de Pagamento
 }

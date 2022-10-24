@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Ex02 {
 	public static void main(String[] args) {
-		int categoriaVeiculo, quantVeiculos =0, endDay;
+		int categoriaVeiculo, quantVeiculos =0;
+		String endDay;
 		double caixa = 0;
 
 		Scanner iScanner = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
 		do {
 			exibirTabPrecos();
@@ -18,34 +20,34 @@ public class Ex02 {
 				case 1:
 					caixa += 5;
 					quantVeiculos++;
-					break;
-					case 2:
+				break;
+				case 2:
 					caixa += 10;
 					quantVeiculos++;
-					break;
-					case 3:
+				break;
+				case 3:
 					caixa += 15;
 					quantVeiculos++;
-					break;
-					case 4:
+				break;
+				case 4:
 					caixa += 20;
 					quantVeiculos++;
-					break;
-					case 5:
+				break;
+				case 5:
 					quantVeiculos++;
-					caixa += 0;
-					break;
+				break;
 				default: System.out.println("Opção inválida!");
 			}
 			
-			System.out.println("Deseja encerrar o dia? (1 - Sim / 2 - Não)");
-			endDay = iScanner.nextInt();
+			System.out.println("Deseja encerrar o dia? (S - Sim / N - Não)");
+			endDay = sc.nextLine().toUpperCase();
 			
-		} while (endDay != 1);
+		} while (!endDay.equals("S"));
 		
 		System.out.println("Quantidade de veículos: " + quantVeiculos);
 		System.out.println("Valor arrecadado: " + caixa);
 		iScanner.close();
+		sc.close();
 	}
 
 	private static void exibirTabPrecos() {

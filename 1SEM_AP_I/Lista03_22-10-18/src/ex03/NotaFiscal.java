@@ -14,16 +14,21 @@ public class NotaFiscal {
 		lista.add(mecardoria);
 	}
 
-	public static String exibirNota() {
-		String nota = "";
+	public static void exibirNota(double valor) {
 		int i = 1;
 		System.out.println("------------------------------------------");
 		System.out.println("   Mercadinho do Tio João - Nota Fiscal   ");
 		System.out.println("------------------------------------------");
+
 		for (Mecardoria m : lista) {
-			nota += " " + i + "  " + m.imprimirNota() + "\n";
+			System.out.println(" " + i + "  " + m.imprimirNota() + "\n");
 			i++;
 		}
-		return nota;
+		
+		System.out.println("------------------------------------------");
+		System.out.println("Valor total:                R$ " + valor);
+		System.out.println("------------------------------------------");
+		System.out.println(" O Mercado do Tio Agradece a preferência! ");
+		System.out.println("------------------------------------------");
 	}
 }
