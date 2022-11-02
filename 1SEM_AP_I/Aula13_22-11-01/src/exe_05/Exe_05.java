@@ -13,16 +13,19 @@ public class Exe_05 {
 		int indice = 0;
 
 		for (int i = 0; i < alunos.length; i++) {
+			
+			media = 0;
 			alunos[i] = new Aluno();
 			System.out.printf("Digite o nome do %d° aluno: ", i+1);
 			alunos[i].nome = strScanner.nextLine();
+
 			for (int j = 0; j < alunos[i].notas.length; j++) {
 				System.out.printf("Digite a %d° nota do aluno %s: ", j+1, alunos[i].nome);
 				alunos[i].notas[j] = numScanner.nextDouble();
 				media += alunos[i].notas[j];
 			}
+
 			alunos[i].media = media / alunos[i].notas.length;
-			media = 0;
 			if (alunos[i].media < 6) {
 				alunos[i].situacao = "Reprovado";
 			} else {

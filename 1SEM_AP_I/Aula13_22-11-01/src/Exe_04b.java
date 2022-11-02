@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Exe_04 {
+public class Exe_04b {
 	public static void main(String[] args) {
 		float[] ambientes = new float[4];
 		int indice = 1;
