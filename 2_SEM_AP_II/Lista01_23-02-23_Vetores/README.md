@@ -10,7 +10,7 @@
 
 5. Modifique o exercício 3 de forma que o conteúdo de vet1 seja copiado para vet2 de forma invertida. Veja o exemplo:
 
-  > **Detalhe:** o programa deve ser genérico de forma que independente do tamanho do vetor, a inversão será realizada corretamente.
+      	 > **Detalhe:** o programa deve ser genérico de forma que independente do tamanho do vetor, a inversão será realizada corretamente.
 
 6. Ler 20 números reais e armazena esses valores em um array. O programa deve calcular a média aritmética dos valores do vetor e imprimir todos os valores menores do que a média calculada.
 
