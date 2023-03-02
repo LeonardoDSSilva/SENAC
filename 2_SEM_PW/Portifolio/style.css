@@ -45,3 +45,26 @@ a{
 	padding: 1rem 2rem;
 	border-radius: 7px;
 }
+
+img{
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+}
+
+section {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	padding: 7rem;
+	height: 400px;
+}
+
+div.text{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1rem;
+	align-items: flex-start;
+}
+
