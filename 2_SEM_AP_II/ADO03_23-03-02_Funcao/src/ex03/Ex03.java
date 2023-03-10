@@ -15,13 +15,15 @@ public class Ex03 {
 	}
 
 	private static double calcularFuncao(int num) {
+		int resultado = 0;
 		if (num < -1){
-			return Math.abs(num) + 2;
+			resultado = Math.abs(num + 2);
 		} else if (num >= -1 && num <= 2) {
-			return (num * num) - 4;
+			resultado = (int) Math.pow(num, 2) - 4;
 		} else {
-			return (2 * num) - 1;
+			resultado = (2 * num) - 1;
 		}
+		return resultado;
 	}
 
 }
