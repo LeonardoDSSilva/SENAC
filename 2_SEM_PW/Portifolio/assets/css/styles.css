@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 :root{
 	--text-primary: #FFF;
 	--text-secundaty: #000;
 	--font-heading: 'Poppins';
 	--font-default: 'Montserrat';
 	font-size: 62.5%; /* 10/16  */
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
 }
 
 body{
@@ -27,8 +27,8 @@ header {
 	padding-top: 12.5rem;
 	padding-left: 7rem;
 	color: var(--text-primary);
-	overflow: hidden;
 	position: relative;
+	overflow: hidden;
 }
 
 header::before{
@@ -39,9 +39,9 @@ header::before{
 	top: 0;
 	left: 0;
 	z-index: -1;
-	background-image: url("./assets/images/hero.jpg");
+	background-image: url("../images/hero.jpg");
 	background-size: cover;
-	animation: zoom 6s;
+	animation: zoom 5s;
 }
 
 @keyframes zoom {
@@ -59,20 +59,24 @@ h1, h2, h3, h4 {
 }
 
 h1{
-	font-size: 5rem;
+    font-size: 5rem;
 }
 
 h2{
-	font-size: 3rem;
+    font-size: 3rem;
 }
 
 span {
-	font-size: 4rem;
+    font-size: 4rem;
+}
+
+p{
+    font-size: 2rem;
 }
 
 .botao {
-	font-size: 1.9rem;
 	color: #FFF;
+	font-size: 1.9rem;
 	text-decoration: none;
 	background: linear-gradient(90deg, #2b5876 100%, #4e4376 100%);
 	padding: 1rem 2rem;
@@ -85,87 +89,90 @@ span {
 }
 
 #avatar {
+	border-radius: 50%;
 	width: 300px;
 	height: 300px;
-	border-radius: 50%;
 }
 
 section {
 	display: flex;
-	align-items: center;
 	gap: 2rem;
 	padding: 7rem;
-	height: 400px;
 }
 
-div.text{
+div{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: 1rem;
 	align-items: flex-start;
 }
 
-p{
-	font-size: 2rem;
-}
-
-/* #secao-projetos{
-	background-color: #212121;
-} */
-
-ul{
+#secao-projetos{
 	display: flex;
-	color: var(--text-primary);
-	gap: 2rem;
-
+	justify-content: center;
+	align-items: center;
+	background-color: #212121;
 }
+
+#secao-projetos ul{
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	color: var(--text-primary);
+}
+
 #secao-projetos li{
 	list-style: none;
-	max-width: 35rem;
-	height: 25rem;
-	border-radius: 10px;
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	position: relative;
-
 }
 
-#secao-projetos li::before{
-	content: '';
+.card{
+	width: 25rem;
+	height: 30rem;
+	position: relative;
+	cursor: pointer;
+}
+
+.card-img-wrapper{
 	width: 100%;
 	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	background-image: url("./assets/images/hero.jpg");
-	background-size: cover;
+	background-color: #262626;
 	border-radius: 10px;
-	filter:blur(2px);
+}
+
+.card-img-wrapper img{
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	opacity: .8;
+	transition: opacity .3s;
+}
+
+.card:hover .card-img-wrapper img{
+	opacity: .5;
 }
 
 .card-text{
-	opacity: 0;
 	position: absolute;
-	top: 20%;
-	transition: opacity .5s, opacity .5s;
+	bottom: -2rem;
+	opacity: 0;
+	padding: 2rem;
+	text-shadow: .3rem .2rem .3rem rgba(0, 0, 0, .6)
 }
 
-#secao-projetos li:hover .card-text{
+.card:hover .card-text{
 	opacity: 1;
-	top: 0;
+	bottom: 0;
 }
 
 #secao-projetos h3{
-	font: var(--font-default);
+	font-family: var(--font-default);
 	font-weight: 700;
 	font-size: 2rem;
-	line-height: 3.3REM;
+	line-height: 3.3rem;
 	color: #A044FF;
 }
+
 #secao-projetos p{
 	font-size: 1.5rem;
 }
