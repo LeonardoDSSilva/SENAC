@@ -6,13 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./assets/css/styles.css">
-
 	<title>Portifólio</title>
 </head>
 
 <body>
-	<header>
-		<h1>Web Developer & Front-End</h1>
+    <header>
+        <h1>Web Developer & Front-End</h1>
 		<span>Leonardo Silva</span>
 		<a class="botao" href="#"  >Saiba Mais</a>
 	</header>
@@ -30,7 +29,7 @@
             <li>
                 <div class="card">
                     <div class="card-img-wrapper">
-                      <img src="./assets/images/proj1.jpg" alt="imagem do projeto " />
+                        <img src="./assets/images/proj1.jpg" alt="imagem do projeto " />
                     </div>
                     <div class="card-text">
                         <h2>Wine</h2>
@@ -43,7 +42,7 @@
             <li>
                 <div class="card">
                     <div class="card-img-wrapper">
-                      <img src="./assets/images/proj2.jpg" alt="imagem do projeto " />
+                        <img src="./assets/images/proj2.jpg" alt="imagem do projeto " />
                     </div>
                     <div class="card-text">
                         <h2>Sport Turismo</h2>
@@ -55,7 +54,7 @@
             <li>
                 <div class="card">
                     <div class="card-img-wrapper">
-                      <img src="./assets/images/proj3.jpg" alt="imagem do projeto " />
+                        <img src="./assets/images/proj3.jpg" alt="imagem do projeto " />
                     </div>
                     <div class="card-text">
                         <h2>Gemini</h2>
@@ -66,7 +65,28 @@
             </li>
         </ul>
     </section>
-
+    
+    
+    <section id="secao-orcamento">
+        <form action="#">
+            <h3>Orçamento</h3>
+            <label for="qtde">N. de Páginas</label>
+            <input type="number" name="" id="qtde" min="1" value="1">
+            <label for="js">Precisa  de JS</label>
+            <input type="checkbox" name="" id="js">
+            <label for="layout">Precisa de layout? </label>
+            <div class="input-group">
+                <input type="radio" name="layout" id="layout_sim">
+                <label for="layout_sim" >Sim, Preciso</label>
+                <input type="radio" name="layout" id="layout_nao">
+                <label for="layout_nao">Não, já tenho</label>
+            </div>
+            <label for="prazo">Prazo</label>
+            <input type="range" name="" id="prazo" min="1" max="10">
+            <output>R$ 0,00</output>
+        </form>
+    </section>
+    
 </body>
-
+<script src="./assets/js/script.js"></script>
 </html>
