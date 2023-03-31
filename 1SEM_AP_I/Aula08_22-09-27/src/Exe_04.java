@@ -5,9 +5,6 @@ public class Exe_04 {
         int vaga = 0, menu; float caixa = 0;
         Scanner iScanner = new Scanner(System.in);
 
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();
-
         do {
             System.out.println("1 - Entrada de veículo");
             System.out.println("2 - Saída de veículo");
@@ -18,24 +15,29 @@ public class Exe_04 {
             System.out.println();
             switch (menu){
                 case 1:
-                vaga +=1;
-                if (vaga <= 10) {
+                if (vaga <= 9) {
+                    vaga +=1;
                     System.out.println("Há "+ (10 - vaga) +" vagas disponivel");
                 }
                 else System.out.println("Não há vaga disponivel");
                 break;
                 case 2:
+                System.out.println(vaga);
                 if (vaga > 0) {
                     vaga -= 1; caixa += 25;
                     System.out.printf("Há %d vagas disponivel", (10 - vaga));
                 }
-                else System.out.println("Não há Carro EStacionado");
+                else System.out.println("Não há Carro Estacionado");
                 break;
                 case 3:
+                    System.out.print("\033[H\033[2J");  
+                    System.out.flush();
+
                     System.out.println("Encerrado ..."); 
-                    System.out.printf("Ha %d estacionados\n", vaga); 
+                    if (vaga == 0) System.out.println("Não há Carro EStacionado");
+                    else System.out.println("Há "+ vaga +" Carros Estacionado");
                     System.out.printf("Valor Total R$ %.2f\n", caixa); 
-                    System.out.printf("Foi registado %d\n", (( (int)caixa / 25) + vaga)); 
+                    System.out.printf("Foi registado %d Carros\n", (( (int)caixa / 25) + vaga)); 
                 break;
                 default: System.out.println("Opcao Invalida"); break;
             }

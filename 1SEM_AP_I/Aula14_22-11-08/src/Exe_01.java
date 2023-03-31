@@ -10,7 +10,7 @@ public class Exe_01 {
     Random random = new Random();
 	// int numero = r
     for (int i = 0; i < vetor.length; i++) {
-		num = random.nextInt(100);
+		num = random.nextInt(10);
 
 		for (int j = 0; j < i; j++) {
 			if (vetor[j] == num) {

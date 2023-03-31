@@ -9,8 +9,8 @@ public class Exe_01 {
             System.out.print("\033[H\033[2J");  
             System.out.flush();     
 
-            nome = ""; trabalho = 0; prova = 0; media = 0;
             Scanner iScanner = new Scanner(System.in);
+            nome = ""; trabalho = 0; prova = 0; media = 0;
             
             System.out.print("O qual é nome do Aluno: ");
             nome = iScanner.nextLine();
