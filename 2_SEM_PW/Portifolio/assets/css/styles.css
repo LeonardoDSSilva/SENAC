@@ -23,6 +23,35 @@ body{
     font-family: var(--font-default);
 }
 
+.loader{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.spin{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	border: 10px solid silver;
+	border-top: 10px solid #6a3093;
+	animation: spin 2.5s linear infinite;
+}
+
+.hiden{
+	display: none;
+}
+
+@keyframes spin{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
 #hamburguer{
     position: fixed;
     right: 2rem;
@@ -79,6 +108,10 @@ header {
 	color: var(--text-primary);
 	position: relative;
 	overflow: hidden;
+}
+
+header h1{
+	font-size: clamp(3rem, 5vw, 5rem);
 }
 
 header::before{
@@ -280,4 +313,26 @@ input[type=text], input[type=number]{
 
 #secao-orcamento  form output{
 	grid-column: 2;
+}
+
+/* @media (max-width: 890px) */
+/* @media print and (max-width: 890px) { */
+
+
+
+@media (width <= 890px) {
+	#secao-projetos ul{
+		flex-direction: column;
+	}
+	#secao-orcamento form{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+@media (width < 768px) {
+	.only-Large{
+		display: none;
+	}
 }

@@ -5,113 +5,120 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./assets/css/styles.css">
+	<link rel="stylesheet" rel="preload" href="./assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./assets/js/loader.js"></script>
 	<title>Portifólio</title>
 </head>
 
 <body>
-    <nav>
-        <div id="hamburguer">
-            <div class="linha" id="linha1"></div>
-            <div class="linha" id="linha2"></div>
-            <div class="linha" id="linha3"></div>
-        </div>
-        <ul>
-            <li><a href="#home">
-                <i class="fa-solid fa-house"></i>
-                HOME
-            </a></li>
-            <li><a href="#secao-apresentacao">
-                <i class="fa-solid fa-user"></i>
-                APRESETACAO
-            </a></li>
-            <li><a href="#secao-projetos">
-                <i class="fa-solid fa-code"></i>
-                PROJETOS
-            </a></li>
-            <li><a href="#secao-orcamento">
-                <i class="fa-solid fa-money-bill-1-wave"></i>
-                ORCAMENTO
-            </a></li>
-        </ul>
-    </nav>
-    <header id="home">
-        <h1>Web Developer & Front-End</h1>
-		<span>Leonardo Silva</span>
-		<a class="botao" href="#secao-apresentacao">Saiba Mais</a>
-	</header>
-	<section id="secao-apresentacao"
-		<img id="avatar"src="https://github.com/LeonardoDSSilva.png" alt="Foto de perfil">
-		<div class="text">
-			<h2>Leonardo Silva</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<a class="botao" href="#secao-projetos">ver projetos</a>
-		</div>
-	</section>
+    <div class="loader">
+        <div class="spin"></div>
+    </div>
 
-	<section id="secao-projetos">
-        <ul>
-            <li>
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="./assets/images/proj1.jpg" alt="imagem do projeto " />
-                    </div>
-                    <div class="card-text">
-                        <h2>Wine</h2>
-                        <h3>HTML, CSS, JS</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <a href="#" class="botao">saiba mais</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="./assets/images/proj2.jpg" alt="imagem do projeto " />
-                    </div>
-                    <div class="card-text">
-                        <h2>Sport Turismo</h2>
-                        <h3>Java</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, voluptate dolorum provident error ut libero?</p>
-                        <a href="#" class="botao"> saiba mais</a>
-                    </div>
-            </li>
-            <li>
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="./assets/images/proj3.jpg" alt="imagem do projeto " />
-                    </div>
-                    <div class="card-text">
-                        <h2>Gemini</h2>
-                        <h3>PHP, Laravel</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores maxime molestias quis! Quis, quos aspernatur!</p>
-                        <a href="#" class="botao"> saiba mais</a>
-                    </div>
-            </li>
-        </ul>
-    </section>
-    
-    
-    <section id="secao-orcamento">
-        <form action="#">
-            <h3>Orçamento</h3>
-            <label for="qtde">N. de Páginas</label>
-            <input type="number" name="" id="qtde" min="1" value="1">
-            <label for="js">Precisa  de JS</label>
-            <input type="checkbox" name="" id="js">
-            <label for="layout">Precisa de layout? </label>
-            <div class="input-group">
-                <input type="radio" name="layout" id="layout_sim">
-                <label for="layout_sim" >Sim, Preciso</label>
-                <input type="radio" name="layout" id="layout_nao">
-                <label for="layout_nao">Não, já tenho</label>
+    <main class="hiden">
+        <nav>
+            <div id="hamburguer">
+                <div class="linha" id="linha1"></div>
+                <div class="linha" id="linha2"></div>
+                <div class="linha" id="linha3"></div>
             </div>
-            <label for="prazo">Prazo</label>
-            <input type="range" name="" id="prazo" min="1" max="10">
-            <output>R$ 0,00</output>
-        </form>
-    </section>
+            <ul>
+                <li><a href="#home">
+                    <i class="fa-solid fa-house"></i>
+                    HOME
+                </a></li>
+                <li><a href="#secao-apresentacao">
+                    <i class="fa-solid fa-user"></i>
+                    APRESETACAO
+                </a></li>
+                <li><a href="#secao-projetos">
+                    <i class="fa-solid fa-code"></i>
+                    PROJETOS
+                </a></li>
+                <li><a href="#secao-orcamento">
+                    <i class="fa-solid fa-money-bill-1-wave"></i>
+                    ORCAMENTO
+                </a></li>
+            </ul>
+        </nav>
+        <header id="home">
+            <h1>Web Developer & Front-End</h1>
+            <span class="only-Large">Leonardo Silva</span>
+            <a class="botao" href="#secao-apresentacao">Saiba Mais</a>
+        </header>
+        <section id="secao-apresentacao"
+            <img id="avatar" class="only-Large" src="https://github.com/LeonardoDSSilva.png" alt="Foto de perfil">
+            <div class="text">
+                <h2>Leonardo Silva</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a class="botao" href="#secao-projetos">ver projetos</a>
+            </div>
+        </section>
+
+        <section id="secao-projetos">
+            <ul>
+                <li>
+                    <div class="card">
+                        <div class="card-img-wrapper">
+                            <img src="./assets/images/proj1.jpg" alt="imagem do projeto " />
+                        </div>
+                        <div class="card-text">
+                            <h2>Wine</h2>
+                            <h3>HTML, CSS, JS</h3>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <a href="#" class="botao">saiba mais</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-img-wrapper">
+                            <img src="./assets/images/proj2.jpg" alt="imagem do projeto " />
+                        </div>
+                        <div class="card-text">
+                            <h2>Sport Turismo</h2>
+                            <h3>Java</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, voluptate dolorum provident error ut libero?</p>
+                            <a href="#" class="botao"> saiba mais</a>
+                        </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="card-img-wrapper">
+                            <img src="./assets/images/proj3.jpg" alt="imagem do projeto " />
+                        </div>
+                        <div class="card-text">
+                            <h2>Gemini</h2>
+                            <h3>PHP, Laravel</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores maxime molestias quis! Quis, quos aspernatur!</p>
+                            <a href="#" class="botao"> saiba mais</a>
+                        </div>
+                </li>
+            </ul>
+        </section>
+        
+        
+        <section id="secao-orcamento">
+            <form action="#">
+                <h3>Orçamento</h3>
+                <label for="qtde">N. de Páginas</label>
+                <input type="number" name="" id="qtde" min="1" value="1">
+                <label for="js">Precisa  de JS</label>
+                <input type="checkbox" name="" id="js">
+                <label for="layout">Precisa de layout? </label>
+                <div class="input-group">
+                    <input type="radio" name="layout" id="layout_sim">
+                    <label for="layout_sim" >Sim, Preciso</label>
+                    <input type="radio" name="layout" id="layout_nao">
+                    <label for="layout_nao">Não, já tenho</label>
+                </div>
+                <label for="prazo">Prazo</label>
+                <input type="range" name="" id="prazo" min="1" max="10">
+                <output>R$ 0,00</output>
+            </form>
+        </section>
+    </main>
     
 </body>
 <script src="./assets/js/script.js"></script>
