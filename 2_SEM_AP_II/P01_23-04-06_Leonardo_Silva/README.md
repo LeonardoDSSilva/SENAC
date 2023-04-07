@@ -1,0 +1,5 @@
+# P01 - ALGORITMOS E PROGRAMAÇÃO II
+
+1. Fazer um programa para criar um arry de 5 elementos e pedir ao usuário que preencha com números inteiros e imprima o vetor (função). Depois, pedir para o usuário que entre com um número a ser procurado no vetor. Usando o método de Busca Linear em uma função, procurar no vetor se o valor foi encontrado e informar a posição em que foi encontrado ou não o valor e sua posição.
+2. Fazer um programa para criar uma Matriz 4x4 e preeche-la com valores inteiros (poder ser aleatório ou fixo). Posteriormente, criar uma função para percorrer a matriz e verificar se possui elementos pares. No final o programa deve imprimir a quantidade de elementos pares encontrados, impressão deve ser feita na main.
+3. Criar um programa que na main(), monte um vetor de 10 posições com os seguintes valores = {3, 6, 11, 1, 34, 21, 28, 15, 10}. Na main(), este programa deverá passar este vetor em uma função que utilizando o método de Bubble Sort, ordene este vetor de crescente e retorne o vetor ordenado para a main(). O programa deverá imprimir o vetor desordenado e depois o vetor ordenado (tambem com o uso de funções a partir da main()). 
