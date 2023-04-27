@@ -1,7 +1,5 @@
 package funcionario;
 
-import java.time.Year;
-import java.util.Date;
 
 public class Funcionario {
 
