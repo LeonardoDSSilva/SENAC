@@ -40,6 +40,77 @@
 	</nav>
 
 	<main class="container p-3">
+
+
+		<div class="row">
+			<!-- Button trigger modal -->
+			<p>
+				<button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
+					data-bs-target="#exampleModal">
+					Adicionar novo item
+				</button>
+			</p>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">NOME</span>
+								<input type="text" class="form-control" placeholder="Nome da Tarefa"
+									aria-label="Nome da Tarefa" aria-describedby="basic-addon1">
+							</div>
+
+							<div class="input-group mb-3">
+								<label class="input-group-text" for="inputGroupSelect01">DISCIPLINA</label>
+								<select class="form-select" id="inputGroupSelect01">
+									<option selected> Escolha uma disciplina...</option>
+									<option value="1">Arquitetura</option>
+									<option value="2">Estrutura</option>
+									<option value="3">Instalações</option>
+								</select>
+							</div>
+
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">STATUS</span>
+
+								<input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
+									autocomplete="off" checked>
+								<label class="btn btn-outline-success" for="success-outlined">Iniciado</label>
+
+								<input type="radio" class="btn-check" name="options-outlined" id="warning-outlined"
+									autocomplete="off">
+								<label class="btn btn-outline-warning" for="warning-outlined">Em Andamento</label>
+
+								<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined"
+									autocomplete="off">
+								<label class="btn btn-outline-danger" for="danger-outlined">Concluído</label>
+
+							</div>
+
+							<div class="input-group mb-3">
+								<span class="input-group-text">$</span>
+								<input type="text" class="form-control" aria-label="Valor">
+							</div>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 
 		<div class="row ">
 			<p>
 				<button class="btn btn-primary float-end" type="button" data-bs-toggle="collapse"
@@ -89,7 +160,9 @@
 				</div>
 			</div>
 
-		</div>
+		</div> -->
+
+
 		<div class="row p-3">
 			<div class="row justify-content-between">
 				<div class="card text-bg-success mb-3 col" style="max-width: 18rem;">
@@ -115,6 +188,8 @@
 				</div>
 			</div>
 		</div>
+
+
 		<div class="row">
 			<table class="table">
 				<thead>
