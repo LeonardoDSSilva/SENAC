@@ -44,12 +44,12 @@
 
 		<div class="row">
 			<!-- Button trigger modal -->
-			<p>
+			<!-- <p>
 				<button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
 					data-bs-target="#exampleModal">
 					Adicionar novo item
 				</button>
-			</p>
+			</p> -->
 
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -63,21 +63,21 @@
 						<div class="modal-body">
 							<div class="input-group mb-3">
 								<span class="input-group-text" id="basic-addon1">NOME</span>
-								<input type="text" class="form-control" placeholder="Nome da Tarefa"
+								<input type="text" id="nomeED" class="form-control" placeholder="Nome da Tarefa"
 									aria-label="Nome da Tarefa" aria-describedby="basic-addon1">
 							</div>
 
 							<div class="input-group mb-3">
-								<label class="input-group-text" for="inputGroupSelect01">DISCIPLINA</label>
-								<select class="form-select" id="inputGroupSelect01">
+								<label class="input-group-text" for="disciplinaED">DISCIPLINA</label>
+								<select class="form-select" id="disciplinaED">
 									<option selected> Escolha uma disciplina...</option>
-									<option value="1">Arquitetura</option>
-									<option value="2">Estrutura</option>
-									<option value="3">Instalações</option>
+									<option value="Arquitetura">Arquitetura</option>
+									<option value="Estrutura">Estrutura</option>
+									<option value="Instalações">Instalações</option>
 								</select>
 							</div>
 
-							<div class="input-group mb-3">
+							<!-- <div class="input-group mb-3">
 								<span class="input-group-text" id="basic-addon1">STATUS</span>
 
 								<input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
@@ -92,25 +92,23 @@
 									autocomplete="off">
 								<label class="btn btn-outline-danger" for="danger-outlined">Concluído</label>
 
-							</div>
+							</div> -->
 
 							<div class="input-group mb-3">
 								<span class="input-group-text">$</span>
-								<input type="text" class="form-control" aria-label="Valor">
+								<input type="number" id="valorED" class="form-control" aria-label="Valor">
 							</div>
 
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save changes</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+							<button type="button" id="btn_Editar" class="btn btn-primary" >Editar</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-
-		<!-- 
 		<div class="row ">
 			<p>
 				<button class="btn btn-primary float-end" type="button" data-bs-toggle="collapse"
@@ -122,21 +120,21 @@
 				<div class="card card-body">
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">NOME</span>
-						<input type="text" class="form-control" placeholder="Nome da Tarefa" aria-label="Nome da Tarefa"
+						<input type="text" id="nome" class="form-control" placeholder="Nome da Tarefa" aria-label="Nome da Tarefa"
 							aria-describedby="basic-addon1">
 					</div>
 
 					<div class="input-group mb-3">
-						<label class="input-group-text" for="inputGroupSelect01">DISCIPLINA</label>
-						<select class="form-select" id="inputGroupSelect01">
+						<label class="input-group-text" for="disciplina">DISCIPLINA</label>
+						<select class="form-select" id="disciplina">
 							<option selected> Escolha uma disciplina...</option>
-							<option value="1">Arquitetura</option>
-							<option value="2">Estrutura</option>
-							<option value="3">Instalações</option>
+							<option value="Arquitetura">Arquitetura</option>
+							<option value="Estrutura">Estrutura</option>
+							<option value="Instalações">Instalações</option>
 						</select>
 					</div>
 
-					<div class="input-group mb-3">
+					<!-- <div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">STATUS</span>
 
 						<input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
@@ -151,22 +149,22 @@
 							autocomplete="off">
 						<label class="btn btn-outline-danger" for="danger-outlined">Concluído</label>
 
-					</div>
+					</div> -->
 					<div class="input-group mb-3">
 						<span class="input-group-text">$</span>
-						<input type="text" class="form-control" aria-label="Valor">
+						<input type="text" id="valor" class="form-control" aria-label="Valor">
 					</div>
-					<button type="button" class="btn btn-primary">Adicionar</button>
+					<button type="button" class="btn btn-primary" id="btn_Salvar" >Adicionar</button>
 				</div>
 			</div>
 
-		</div> -->
+		</div>
 
 
 		<div class="row p-3">
 			<div class="row justify-content-between">
-				<div class="card text-bg-success mb-3 col" style="max-width: 18rem;">
-					<div class="card-header">Itens Iniciados</div>
+				<div class="card text-bg-secondary mb-3 col" style="max-width: 18rem;">
+					<div class="card-header">Itens Não Iniciados</div>
 					<div class="card-body">
 						<h5 class="card-title">Primary card title</h5>
 						<p class="card-text">%</p>
@@ -179,7 +177,7 @@
 						<p class="card-text">%</p>
 					</div>
 				</div>
-				<div class="card text-bg-danger mb-3 col" style="max-width: 18rem;">
+				<div class="card text-bg-success mb-3 col" style="max-width: 18rem;">
 					<div class="card-header">Itens Concluídos</div>
 					<div class="card-body">
 						<h5 class="card-title">Secondary card title</h5>
@@ -195,37 +193,21 @@
 				<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">NOME</th>
+						<th scope="col">TAREFA</th>
 						<th scope="col">DISCIPLINA</th>
 						<th scope="col">VALOR</th>
 						<th scope="col">STATUS</th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td colspan="2">Larry the Bird</td>
-						<td>@twitter</td>
-					</tr>
+				<tbody id="tabela">
 				</tbody>
 			</table>
 		</div>
 
 	</main>
 
-
+<script src="/assets/js/crud.js"></script>
 
 </body>
 
