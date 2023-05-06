@@ -212,7 +212,7 @@ public class ComputadorDAO {
 
                 instrucaoSQL = conexao.prepareStatement(query);
 
-                instrucaoSQL.setString(1,  marca + "%");
+                instrucaoSQL.setString(1, marca + "%");
 
                 ResultSet rs = instrucaoSQL.executeQuery();
 

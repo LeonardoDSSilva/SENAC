@@ -10,57 +10,57 @@ package ldss.lojainformatica.model;
  */
 public class Computador {
 
-	private int idComputador;
-        private String marca = "LeonardoSilva";
-	private String hd;
-	private String processador;
-	
-	public Computador() {
-	}
+    private int idComputador;
+    private String marca = "LeonardoSilva";
+    private String hd;
+    private String processador;
 
-	public Computador(String marca, String hd, String processador) {
-		this.marca = marca;
-		this.hd = hd;
-		this.processador = processador;
-	}
+    public Computador() {
+    }
 
-	public Computador(int idComputador, String marca, String hd, String processador) {
-		this.idComputador = idComputador;
-		this.marca = marca;
-		this.hd = hd;
-		this.processador = processador;
-	}
+    public Computador(String marca, String hd, String processador) {
+        this.marca = marca;
+        this.hd = hd;
+        this.processador = processador;
+    }
 
-	public void setIdComputador(int idComputador) {
-		this.idComputador = idComputador;
-	}
+    public Computador(int idComputador, String marca, String hd, String processador) {
+        this.idComputador = idComputador;
+        this.marca = marca;
+        this.hd = hd;
+        this.processador = processador;
+    }
 
-	public int getIdComputador() {
-		return idComputador;
-	}
+    public void setIdComputador(int idComputador) {
+        this.idComputador = idComputador;
+    }
 
-	public String getMarca() {
-		return marca;
-	}
+    public int getIdComputador() {
+        return idComputador;
+    }
 
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
+    public String getMarca() {
+        return marca;
+    }
 
-	public String getHd() {
-		return hd;
-	}
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
-	public void setHd(String hd) {
-		this.hd = hd;
-	}
+    public String getHd() {
+        return hd;
+    }
 
-	public String getProcessador() {
-		return processador;
-	}
+    public void setHd(String hd) {
+        this.hd = hd;
+    }
 
-	public void setProcessador(String processador) {
-		this.processador = processador;
-	}
+    public String getProcessador() {
+        return processador;
+    }
+
+    public void setProcessador(String processador) {
+        this.processador = processador;
+    }
 
 }

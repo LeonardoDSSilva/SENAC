@@ -1,7 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package ldss.lojainformatica;
 
 import javax.swing.UnsupportedLookAndFeelException;
@@ -27,6 +26,6 @@ public class Lojainformatica {
 
         //Abre a tela principal
         new ldss.lojainformatica.view.TelaPrincipal().setVisible(true);
-        
+
     }
 }
