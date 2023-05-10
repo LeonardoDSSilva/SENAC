@@ -122,16 +122,18 @@
 						<span class="input-group-text" id="basic-addon1">NOME</span>
 						<input type="text" id="nome" class="form-control" placeholder="Nome da Tarefa" aria-label="Nome da Tarefa"
 							aria-describedby="basic-addon1">
+						<div class="invalid-feedback">Favor digitar um nome.</div>
 					</div>
 
 					<div class="input-group mb-3">
 						<label class="input-group-text" for="disciplina">DISCIPLINA</label>
 						<select class="form-select" id="disciplina">
-							<option selected> Escolha uma disciplina...</option>
+							<option selected>Escolha uma disciplina...</option>
 							<option value="Arquitetura">Arquitetura</option>
 							<option value="Estrutura">Estrutura</option>
 							<option value="Instalações">Instalações</option>
 						</select>
+						<div class="invalid-feedback">Favor escolher uma disciplina.</div>
 					</div>
 
 					<!-- <div class="input-group mb-3">
@@ -153,6 +155,7 @@
 					<div class="input-group mb-3">
 						<span class="input-group-text">$</span>
 						<input type="text" id="valor" class="form-control" aria-label="Valor">
+						<div class="invalid-feedback">Favor digitar um valor.</div>
 					</div>
 					<button type="button" class="btn btn-primary" id="btn_Salvar" >Adicionar</button>
 				</div>
@@ -187,8 +190,19 @@
 			</div>
 		</div>
 
+		<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+			<!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+			<label class="btn btn-outline-primary" for="btnradio1"><i class="bi bi-table"></i></label> -->
+		  
+			<input type="radio" class="btn-check" name="btnradio" id="btn_Table" autocomplete="off">
+			<label class="btn btn-outline-primary" for="btn_Table">Radio 2</label>
+		  
+			<input type="radio" class="btn-check" name="btnradio" id="btn_Cards" autocomplete="off">
+			<label class="btn btn-outline-primary" for="btn_Cards">Radio 3</label>
+		  </div>
 
-		<div class="row">
+
+		<div class="row" id="md_Table">
 			<table class="table">
 				<thead>
 					<tr>
@@ -204,6 +218,8 @@
 				</tbody>
 			</table>
 		</div>
+
+		<div id="md_Cards" class="row mx-auto my-2 g-3"></div>
 
 	</main>
 
