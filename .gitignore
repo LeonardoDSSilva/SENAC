@@ -15,3 +15,9 @@ target/
 /nbdist/
 /.nb-gradle/
 *.lnk
+
+## NODE ###
+/node_modules
+/.pnp
+.pnp.js
+package-lock.json
