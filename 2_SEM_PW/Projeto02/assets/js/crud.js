@@ -28,6 +28,19 @@ window.addEventListener('load', () => {
 function atualizar() {
 	document.querySelector('#tabela').innerHTML = '';
 	tafefas.forEach(tafefa => document.querySelector('#tabela').innerHTML += criaLinha(tafefa));
+
+	qntNaoIniciado = tafefas.filter(tafefa => tafefa.status == 0).length;
+	qntIniciado = tafefas.filter(tafefa => tafefa.status == 1).length;
+	qntEmAndamento = tafefas.filter(tafefa => tafefa.status == 2).length;
+	qntConcluido = tafefas.filter(tafefa => tafefa.status == 3).length;
+	qntTotal = tafefas.length;
+
+	document.querySelector('#qntNaoIniciado').innerHTML = qntNaoIniciado;
+	document.querySelector('#qntIniciado').innerHTML = qntIniciado;
+	document.querySelector('#qntEmAndamento').innerHTML = qntEmAndamento;
+	document.querySelector('#qntConcluido').innerHTML = qntConcluido;
+
+	document.querySelector('#qntTotal').innerHTML = tafefas.length;
 };
 
 var myCollapse = document.getElementById('collapseExample')
@@ -45,10 +58,12 @@ function inserir() {
 	const qtdLinhas = document.querySelector('#tabela').rows.length + 1;
 
 	const tafefa = {
-		id: qtdLinhas,
+		linha: qtdLinhas,
+		id: Date.now(),
 		nome,
 		disciplina,
-		valor
+		valor,
+		status: 0
 	}
 
 	if (!isValid(tafefa.nome, document.querySelector("#nome"))) return
@@ -94,30 +109,28 @@ function criaLinha(tafefa) {
 
 		`
 	<tr>
-	<th scope="row">${tafefa.id}</th>
+	<th scope="row">${tafefa.linha}</th>
 		<td>${tafefa.nome}</td>
 		<td>${tafefa.disciplina}</td>
 		<td>${tafefa.valor}</td>
 		<td>
-			<input type="radio" class="btn-check" name="options-outlined-${tafefa.id}" id="success-outlined-${tafefa.id}"
-			autocomplete="off" checked>
-				<label class="btn btn-outline-success" for="success-outlined-${tafefa.id}">Iniciado</label>
+			<input type="radio" class="btn-check" name="options-outlined-${tafefa.id}" id="success-outlined-${tafefa.id}" autocomplete="off" ${tafefa.status == 1 ? 'checked' : ''}>
+			<label class="btn btn-outline-success" for="success-outlined-${tafefa.id}" onClick="status(${tafefa.id}, 1)">Iniciado</label>
 				
-				<input type="radio" class="btn-check" name="options-outlined-${tafefa.id}" id="warning-outlined-${tafefa.id}"
-				autocomplete="off">
-				<label class="btn btn-outline-warning" for="warning-outlined-${tafefa.id}">Em Andamento</label>
+			<input type="radio" class="btn-check" name="options-outlined-${tafefa.id}" id="warning-outlined-${tafefa.id}" autocomplete="off" ${tafefa.status == 2 ? 'checked' : ''}>
+			<label class="btn btn-outline-warning" for="warning-outlined-${tafefa.id}" onClick="status(${tafefa.id}, 2)">Em Andamento</label>
 				
-				<input type="radio" class="btn-check" name="options-outlined-${tafefa.id}" id="danger-outlined-${tafefa.id}"
-				autocomplete="off">
-				<label class="btn btn-outline-danger" for="danger-outlined-${tafefa.id}">Concluído</label>
-				</td>
-				<td>
-				<button type="button" onClick="carregar(this)"class="btn btn-primary" data-bs-toggle="modal"
-				data-bs-target="#exampleModal">
-				Editar
-				</button>
-				<button type="button" onClick="apagar(this)" class="btn btn-danger">Excluir</button>
-				</td>
+			<input type="radio" class="btn-check" name="options-outlined-${tafefa.id}" id="danger-outlined-${tafefa.id}" autocomplete="off"  onChange="status(${tafefa.id}, 3)" ${tafefa.status == 3 ? 'checked' : ''}>
+			<label class="btn btn-outline-danger" for="danger-outlined-${tafefa.id}" >Concluído</label>
+
+			</td>
+			<td>
+			<button type="button" onClick="carregar(this)"class="btn btn-primary" data-bs-toggle="modal"
+			data-bs-target="#exampleModal">
+			Editar
+			</button>
+			<button type="button" onClick="apagar(this)" class="btn btn-danger">Excluir</button>
+			</td>
 	</tr>
 	`
 	return linha;
@@ -185,4 +198,16 @@ function criarCard(tarefa) {
 	</div> <!-- col -->
 	` 
 	return card
+}
+
+function status(id, status) {
+	const index = tafefas.findIndex(tafefa => tafefa.id == id);
+	tafefas[index].status = status;
+	localStorage.setItem('tafefas', JSON.stringify(tafefas));
+	atualizar();
+}
+
+function filtrar(lista){
+	document.querySelector('#tabela').innerHTML = ''
+	lista.forEach(tafefa => document.querySelector('#tabela').innerHTML += criaLinha(tafefa))
 }

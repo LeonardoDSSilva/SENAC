@@ -31,8 +31,9 @@
 						<a class="nav-link" href="#">Link</a>
 					</li>
 				</ul>
+				<h3><span id="qntTotal"class="badge bg-secondary me-4"></span></h3>
 				<form class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Digite">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Digite" id="buscar">
 					<button class="btn btn-outline-success" type="submit">Pesquisar</button>
 				</form>
 			</div>
@@ -154,7 +155,7 @@
 					</div> -->
 					<div class="input-group mb-3">
 						<span class="input-group-text">$</span>
-						<input type="text" id="valor" class="form-control" aria-label="Valor">
+						<input type="number" id="valor" class="form-control" aria-label="Valor">
 						<div class="invalid-feedback">Favor digitar um valor.</div>
 					</div>
 					<button type="button" class="btn btn-primary" id="btn_Salvar" >Adicionar</button>
@@ -167,24 +168,31 @@
 		<div class="row p-3">
 			<div class="row justify-content-between">
 				<div class="card text-bg-secondary mb-3 col" style="max-width: 18rem;">
-					<div class="card-header">Itens Não Iniciados</div>
+					<a class="btn card-header stretched-link" onclick="filtrarStatus(0)">Itens Não Iniciados</a>
 					<div class="card-body">
 						<h5 class="card-title">Primary card title</h5>
-						<p class="card-text">%</p>
-					</div>
-				</div>
-				<div class="card text-bg-warning mb-3 col " style="max-width: 18rem;">
-					<div class="card-header">Itens em Andamento</div>
-					<div class="card-body">
-						<h5 class="card-title">Success card title</h5>
-						<p class="card-text">%</p>
+						<p class="card-text" id="qntNaoIniciado"></p>
 					</div>
 				</div>
 				<div class="card text-bg-success mb-3 col" style="max-width: 18rem;">
-					<div class="card-header">Itens Concluídos</div>
+					<a class="btn card-header stretched-link"onclick="filtrarStatus(1)">Itens Iniciado</a>
 					<div class="card-body">
 						<h5 class="card-title">Secondary card title</h5>
-						<p class="card-text">%</p>
+						<p class="card-text" id="qntIniciado"></p>
+					</div>
+				</div>
+				<div class="card text-bg-warning mb-3 col " style="max-width: 18rem;">
+					<a class="btn card-header stretched-link"onclick="filtrarStatus(2)">Itens em Andamento</a>
+					<div class="card-body">
+						<h5 class="card-title">Success card title</h5>
+						<p class="card-text" id="qntEmAndamento"></p>
+					</div>
+				</div>
+				<div class="card text-bg-danger mb-3 col" style="max-width: 18rem;">
+					<a class="btn card-header stretched-link"onclick="filtrarStatus(3)">Itens Concluídos</a>
+					<div class="card-body">
+						<h5 class="card-title">Secondary card title</h5>
+						<p class="card-text" id="qntConcluido"></p>
 					</div>
 				</div>
 			</div>
@@ -224,6 +232,7 @@
 	</main>
 
 <script src="/assets/js/crud.js"></script>
+<script src="/assets/js/filtros.js"></script>
 
 </body>
 
