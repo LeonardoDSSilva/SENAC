@@ -15,18 +15,17 @@ public class Pilha {
 	}
 
 	public boolean push(int valorEmpilhar) {
-		if(!isFull) {
-			top++;
-			vetorPilha[top] = valorEmpilhar;
-			isEmpty = true;
-
-			if(top == vetorPilha.length - 1) {
-				isFull = true;
-			}
-			return true;
-		}else {
-			return false;
-		}
+        if (!isFull) {
+            top++;
+            vetorPilha[top] = valorEmpilhar;
+            isEmpty = false;
+            if (top == (vetorPilha.length - 1)) {
+                isFull = true;
+            }
+            return true;
+        } else {
+            return false;
+        }
 	}
 
 	public int pop() {
@@ -34,19 +33,20 @@ public class Pilha {
 			int valorRetorno = vetorPilha[top];
 			isFull = false;
 			top--;
-			if(isFull) {
-				isFull = false;
-			}
+            if (top == -1) {
+                isEmpty = true;
+            }
 			return valorRetorno;
 		}
 		return -1;
 	}
 
 	public int peek() {
-		if(!isEmpty) {
+		if(isEmpty == false) {
 			return vetorPilha[top];
+		}else {
+			return -1;
 		}
-		return -1;
 	}
 
 	public void clear() {
