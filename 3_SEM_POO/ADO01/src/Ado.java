@@ -1,76 +1,85 @@
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ado {
-	public Map<String, Double> obterPib(String pathFile){
-		Arquivo arquivo = new Arquivo();
-		BufferedReader conteudo = arquivo.lerArquivo(pathFile);
-		Map<String, Double> pib = new HashMap<String, Double>();
- 		try {
+
+	private Arquivo arquivo = new Arquivo();
+	private double pibTotal = 0;
+
+	public List<EstadoPIB> obterPib(String pathFile){
+		List<EstadoPIB> estados = new ArrayList<EstadoPIB>();
+		
+		try {
+			BufferedReader conteudo = new BufferedReader(this.arquivo.lerArquivo(pathFile));
 			while (conteudo.ready()) {
 				String linha = conteudo.readLine();
 				String[] dados = linha.split(";");
-				pib.put(dados[0], Double.parseDouble(dados[1]));
+				estados.add(new EstadoPIB(dados[0], Double.parseDouble(dados[1])));
 			}
 			conteudo.close();
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Erro lendo o arquivo !!! ");
 		}
-		return pib;
+		return estados;
 	}
 
-	public double obterPibTotal(Map<String, Double> pib) {
-		double pibTotal = 0;
-		for (String estado : pib.keySet()) {
-			pibTotal += pib.get(estado);
+	public void obterPibTotal(List<EstadoPIB> estados) {
+		double total = 0;
+		for (EstadoPIB estado : estados) {
+			total += estado.getPib();
 		}
-		return pibTotal;
+		this.pibTotal = total;
 	}
 
-	public void exibirPibPerCapita(Map<String, Double> pib ) {
-		double pibTotal = obterPibTotal(pib);
-		// Exibir PIB per capita
+	public void exibirPibPerCapita(List<EstadoPIB> estados) {
+		obterPibTotal(estados);
 		System.out.println("PIB per capita: ");
-		for (String estado : pib.keySet()) {
-			System.out.printf(" - %s - PIB: %.2f - %.2f %% \n", estado, pib.get(estado),
-					pib.get(estado) / pibTotal * 100);
+		for (EstadoPIB estado : estados) {
+			System.out.printf(" - %s - PIB: %.2f - %.4f%%\n", estado.getEstado(), estado.getPib(),
+					estado.getPib() / this.pibTotal);
 		}
 	}
 
-	public double obterPibPorRegiao(Map<String, Double> pib, String regiao) {
-		for (String estado : pib.keySet()) {
-			if (estado.equals(regiao)) {
-				return pib.get(estado);
+	public double obterPibPorRegiao(List<EstadoPIB> estados, String regiao) {
+		for (EstadoPIB estado : estados) {
+			if (estado.getEstado().equals(regiao.trim())) {
+				return estado.getPib();
 			}
 		}
 		return 0;
 	}
 
-	public void salvarPorRegiao(Map<String, Double> pib, String pathFile) {
-		Arquivo arquivo = new Arquivo();
-		BufferedReader conteudo = arquivo.lerArquivo(pathFile);
-		Map<String, Double> pibPorRegiao = new HashMap<String, Double>();
+	public void salvarPorRegiao(List<EstadoPIB> estados, String pathFile) {
+
+		List<EstadoPIB> pibPorRegiao = new ArrayList<EstadoPIB>();
+
 		try {
+			BufferedReader conteudo = new BufferedReader(this.arquivo.lerArquivo(pathFile));
+
 			while (conteudo.ready()) {
 				String regiao = conteudo.readLine();
-				double pibEstado = obterPibPorRegiao(pib, regiao);
-				
-				
+
+				if (regiao.length() > 0) {
+					double pibEstado = obterPibPorRegiao(estados, regiao);
+					pibPorRegiao.add(new EstadoPIB(regiao, pibEstado));
+				}
 			}
 			conteudo.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Erro lendo o arquivo !!! ");                  
 		}
-		for (String regiao : pibPorRegiao.keySet()) {
-			System.out.printf(" - %s - PIB: %.2f \n", regiao, pibPorRegiao.get(regiao));
+		String conteudoArquivo = "";
+		for (EstadoPIB estado : pibPorRegiao) {
+			if (estado.getPib() > 0) {
+				conteudoArquivo += " - " + estado.getEstado() + ", " + estado.getPib() + "\n";
+				System.out.printf(" - %s - PIB: %.2f \n", estado.getEstado(), estado.getPib());
+			} else {
+				conteudoArquivo += estado.getEstado() + ":\n";
+				System.out.println(estado.getEstado() + ":");
+			}
 		}
+		arquivo.salvarArquivo(conteudoArquivo);
 	}
-
 }
