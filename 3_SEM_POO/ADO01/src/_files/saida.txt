@@ -1,0 +1,32 @@
+Norte:
+ - Rondônia, 27.0
+ - Acre, 8.7
+ - Amazonas, 64.0
+ - Roraima, 6.9
+ - Pará, 88.0
+ - Amapá, 8.9
+ - Tocantins, 18.0
+Nordeste:
+ - Maranhão, 52.0
+ - Piauí, 24.0
+ - Ceará, 87.0
+ - Rio Grande do Norte, 36.0
+ - Paraíba, 35.0
+ - Pernambuco, 104.0
+ - Alagoas, 28.0
+ - Sergipe, 26.0
+ - Bahia, 159.0
+Sudeste:
+ - Minas Gerais, 386.0
+ - Espírito Santo, 97.0
+ - Rio de Janeiro, 462.0
+ - São Paulo, 1349.0
+Sul:
+ - Paraná, 239.0
+ - Santa Catarina, 169.0
+ - Rio Grande do Sul, 263.0
+Centro-Oeste:
+ - Mato Grosso do Sul, 49.0
+ - Mato Grosso, 71.0
+ - Goiás, 111.0
+ - Distrito Federal, 164.0

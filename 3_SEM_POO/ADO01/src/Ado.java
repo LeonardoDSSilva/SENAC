@@ -7,43 +7,37 @@ public class Ado {
 
 	private Arquivo arquivo = new Arquivo();
 	private double pibTotal = 0;
+	private List<EstadoPIB> estados = new ArrayList<EstadoPIB>();
 
-	public List<EstadoPIB> obterPib(String pathFile){
-		List<EstadoPIB> estados = new ArrayList<EstadoPIB>();
-		
+	public Ado(String filePIB) {
+		obterPib(filePIB);
+	}
+
+	private void obterPib(String pathFile){
 		try {
 			BufferedReader conteudo = new BufferedReader(this.arquivo.lerArquivo(pathFile));
 			while (conteudo.ready()) {
 				String linha = conteudo.readLine();
 				String[] dados = linha.split(";");
-				estados.add(new EstadoPIB(dados[0], Double.parseDouble(dados[1])));
+				this.pibTotal += Double.parseDouble(dados[1]);
+				this.estados.add(new EstadoPIB(dados[0], Double.parseDouble(dados[1])));
 			}
 			conteudo.close();
 		} catch (IOException e) {
 			System.out.println("Erro lendo o arquivo !!! ");
 		}
-		return estados;
 	}
 
-	public void obterPibTotal(List<EstadoPIB> estados) {
-		double total = 0;
-		for (EstadoPIB estado : estados) {
-			total += estado.getPib();
-		}
-		this.pibTotal = total;
-	}
-
-	public void exibirPibPerCapita(List<EstadoPIB> estados) {
-		obterPibTotal(estados);
+	public void exibirPibPerCapita() {
 		System.out.println("PIB per capita: ");
-		for (EstadoPIB estado : estados) {
-			System.out.printf(" - %s - PIB: %.2f - %.4f%%\n", estado.getEstado(), estado.getPib(),
-					estado.getPib() / this.pibTotal);
+		for (EstadoPIB estado : this.estados) {
+			System.out.printf(" - %s - PIB: %.2f - %.2f%%\n", estado.getEstado(), estado.getPib(),
+					(estado.getPib() / this.pibTotal) * 100);
 		}
 	}
 
-	public double obterPibPorRegiao(List<EstadoPIB> estados, String regiao) {
-		for (EstadoPIB estado : estados) {
+	private double obterPibPorRegiao(String regiao) {
+		for (EstadoPIB estado : this.estados) {
 			if (estado.getEstado().equals(regiao.trim())) {
 				return estado.getPib();
 			}
@@ -51,18 +45,15 @@ public class Ado {
 		return 0;
 	}
 
-	public void salvarPorRegiao(List<EstadoPIB> estados, String pathFile) {
-
+	public void salvarPorRegiao(String pathFile) {
 		List<EstadoPIB> pibPorRegiao = new ArrayList<EstadoPIB>();
-
 		try {
 			BufferedReader conteudo = new BufferedReader(this.arquivo.lerArquivo(pathFile));
-
 			while (conteudo.ready()) {
 				String regiao = conteudo.readLine();
 
 				if (regiao.length() > 0) {
-					double pibEstado = obterPibPorRegiao(estados, regiao);
+					double pibEstado = obterPibPorRegiao(regiao);
 					pibPorRegiao.add(new EstadoPIB(regiao, pibEstado));
 				}
 			}
