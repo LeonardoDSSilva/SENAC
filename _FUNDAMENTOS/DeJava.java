@@ -170,6 +170,8 @@ public class DeJava { // Deve ter o mesmo nome do arquivo
         nome1 == nome3; //Retorna verdadeiro
         nome1.equals(nome2); //Retorna falso
         nome1.equals(nome3); //Retorna verdadeiro
+        nome1.equalsIgnoreCase("João"); //Retorna verdadeiro
+        nome1.equalsIgnoreCase("Lucas"); //Retorna falso
 
         System.out.print("Informe o 1º nome: ");
         nome01 = iScanner.next().toUpperCase(); // Captura a primeira letra da palavra e transforma em maiúsculo (ex: "João" = "J")

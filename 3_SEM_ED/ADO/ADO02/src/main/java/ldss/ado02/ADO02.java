@@ -1,8 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package ldss.ado02;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.UnsupportedLookAndFeelException;
+import ldss.ado02.views.TelaPrincipal;
+
 
 /**
  *
@@ -11,6 +14,20 @@ package ldss.ado02;
 public class ADO02 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        //Define o padrão das janelas
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    try {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                        Logger.getLogger(ADO02.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+        }
+        
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
     }
 }

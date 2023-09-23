@@ -10,10 +10,14 @@ window.addEventListener("load", () => {
 })
 
 function atualizar(){
+    localStorage.setItem("tarefas", JSON.stringify(tarefas))
     document.querySelector('#tarefas').innerHTML = ""
     tarefas.forEach(tarefa => document.querySelector('#tarefas').innerHTML +=
         criarCard(tarefa)
     )
+    const total = tarefas.reduce((total, tarefa) => total + parseInt(tarefa.pontos), 0)
+    const totalConcluidas = tarefas.filter(tarefa => tarefa.concluida).reduce((total, tarefa) => total + parseInt(tarefa.pontos), 0)
+    document.querySelector('#pontuacao').innerHTML =  totalConcluidas +  " / " + total
 }
 
 function cadastrar() {
@@ -24,9 +28,11 @@ function cadastrar() {
 
 	// Criar um objeto
 	const tarefa = {
+        id: Date.now(),
 		titulo,
-		pontos,
-		categoria
+		pontos: parseInt(pontos),
+		categoria,
+        concluida: false
 	}
 
     if (!isValid(tarefa.titulo, document.querySelector("#titulo"))) return
@@ -34,7 +40,6 @@ function cadastrar() {
 
     tarefas.push(tarefa)
 
-    localStorage.setItem("tarefas", JSON.stringify(tarefas))
 	document.querySelector('#tarefas').innerHTML += criarCard(tarefa)
 
     atualizar()
@@ -58,11 +63,19 @@ function isValid(valor, campo){
 }
 
 
-function apagar(botao){
-    botao.parentNode.parentNode.parentNode.remove()
+function apagar(id){
+    tarefas = tarefas.filter( tarefa => tarefa.id !== id )
+    atualizar()
+}
+
+function concluida(id){
+    let tarefaRncontrada = tarefas.find(tarefa => tarefa.id == id)
+    tarefaRncontrada.concluida = true
+    atualizar()
 }
 
 function criarCard(tarefa) {
+    const disabled = tarefa.concluida ? "disabled" : ""
     const card = `
         <div class="col-lg-3 col-md-6 col-sm-12">
         <div class="card">
@@ -75,10 +88,10 @@ function criarCard(tarefa) {
                 <span class="badge text-bg-warning">${tarefa.pontos}pt</span>
             </div>
             <div class="card-footer">
-                <a href="#" class="btn btn-success" title="marcar como concluída">
+                <a onClick="concluida(${tarefa.id})" href="#" class="btn btn-success ${disabled}" title="marcar como concluída" disabled>
                     <i class="bi bi-check2"></i>
                 </a>
-                <a href="#" onClick="apagar(this)" class="btn btn-danger" title="apagar tarefa">
+                <a href="#" onClick="apagar(${tarefa.id})" class="btn btn-danger" title="apagar tarefa">
                     <i class="bi bi-trash3"></i>
                 </a>
             </div> <!-- card footer -->
@@ -87,3 +100,12 @@ function criarCard(tarefa) {
     ` 
     return card
 }
+
+function filtar(lista){
+    document.querySelector('#tarefas').innerHTML = ""
+    lista.forEach(tarefa => document.querySelector('#tarefas').innerHTML +=
+        criarCard(tarefa)
+    )
+}
+
+

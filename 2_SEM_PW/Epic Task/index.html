@@ -34,8 +34,9 @@
 							Tarefa
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Predentes</a></li>
-							<li><a class="dropdown-item" href="#">Concluidas</a></li>
+							<li><a class="dropdown-item" id="exibir_Todas" href="#">Todas</a></li>
+							<li><a class="dropdown-item" id="filtrar_Pendentes" href="#">Predentes</a></li>
+							<li><a class="dropdown-item" id="filtrar_Concluidas" href="#">Concluidas</a></li>
 							<li>
 								<hr class="dropdown-divider">
 							</li>
@@ -43,9 +44,9 @@
 						</ul>
 					</li>
 				</ul>
+				<h3><span id="pontuacao"class="badge bg-secondary me-4"></span></h3>
 				<form class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Filtrar" aria-label="Filtrar">
-					<button class="btn btn-outline-success" type="submit">Buscar</button>
+					<input class="form-control me-2" type="search" id="busca"placeholder="Filtrar" aria-label="Filtrar">
 				</form>
 			</div>
 		</div>
@@ -93,6 +94,7 @@
 		</div>
 	</div>
 	<script src="./assets/js/crud.js"></script>
+	<script src="./assets/js/filtros.js"></script>
 </body>
 
 </html>

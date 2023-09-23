@@ -5,87 +5,107 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>InfoFinance</title>
-	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" rel="preload" href="/assets/css/style.css">
+	<script src="./assets/js/loader.js"></script>
 </head>
 <body>
 	<header>
-		<nav>
+
+		<div class="loader">
+			<div class="spin"></div>
+		</div>
+
+		<main class="hiden">
+			<nav>
+				<div id="hamburguer">
+					<div class="linha" id="linha1"></div>
+					<div class="linha" id="linha2"></div>
+					<div class="linha" id="linha3"></div>
+				</div>
+				<ul>
+					<li><a href="#home">
+						<i class="fa-solid fa-house"></i>
+						Home
+					</a></li>
+					<li><a href="#secao-acoes">
+						<i class="fa-solid fa-user"></i>
+						Acoes
+					</a></li>
+					<li><a href="#secao-conversordemoedas">
+						<i class="fa-solid fa-code"></i>
+						Conversor de Moedas
+					</a></li>
+				</ul>
+			</nav>
+	
+			<h1>Seja bem vindo ao InfoFinance</h1>
+			<span>Ao portal de Finanças</span>
+		</header>
+	
+		<section id="secao-acoes">
 			<ul>
-				<li><a class="botao" href="#">Home</a></li>
-				<li><a class="botao" href="#">Cotações</a></li>
-				<li><a class="botao" href="#">Ações</a></li>
-				<li><a class="botao" href="#">Fundos</a></li>
-				<li><a class="botao" href="#">Notícias</a></li>
-				<li><a class="botao" href="#">Análises</a></li>
-				<li><a class="botao" href="#">Mercados</a></li>
+				<li>
+					<div class="card">
+						<div class="card-img-wrapper">
+							<img src="./assets/images/ITAU.jpg" alt="imagem do projeto " />
+						</div>
+						<div class="card-text">
+							<h2>ITAUSA</h2>
+							<h3>7,99</h3>
+							<p>‎-0,07 (‎-0,28%)</p>
+							<a href="#" class="botao">saiba mais</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="card">
+						<div class="card-img-wrapper">
+							<img src="./assets/images/GGBR4.jpg" alt="imagem do projeto " />
+						</div>
+						<div class="card-text">
+							<h2>GGBR4</h2>
+							<h3>24,70</h3>
+							<p> ‎-0,07 (‎-0,28%) </p>
+							<a href="#" class="botao"> saiba mais</a>
+						</div>
+				</li>
+				<li>
+					<div class="card">
+						<div class="card-img-wrapper">
+							<img src="./assets/images/vale.jpg" alt="imagem do projeto " />
+						</div>
+						<div class="card-text">
+							<h2>VALE</h2>
+							<h3>15,61</h3>
+							<p>‎-0,07 (‎-0,28%)</p>
+							<a href="#" class="botao"> saiba mais</a>
+						</div>
+				</li>
 			</ul>
-		</nav>
-		<h1>Seja bem vindo ao InfoFinance</h1>
-		<span>Ao portal de Finanças</span>
-	</header>
-
-	<section id="secao-projetos">
-        <ul>
-            <li>
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="./assets/images/ITAU.jpg" alt="imagem do projeto " />
-                    </div>
-                    <div class="card-text">
-                        <h2>ITAUSA</h2>
-                        <h3>7,99</h3>
-                        <p>‎-0,07 (‎-0,28%)</p>
-                        <a href="#" class="botao">saiba mais</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="./assets/images/GGBR4.jpg" alt="imagem do projeto " />
-                    </div>
-                    <div class="card-text">
-                        <h2>GGBR4</h2>
-                        <h3>24,70</h3>
-                        <p> ‎-0,07 (‎-0,28%) </p>
-                        <a href="#" class="botao"> saiba mais</a>
-                    </div>
-            </li>
-            <li>
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="./assets/images/vale.jpg" alt="imagem do projeto " />
-                    </div>
-                    <div class="card-text">
-                        <h2>VALE</h2>
-                        <h3>15,61</h3>
-                        <p>‎-0,07 (‎-0,28%)</p>
-                        <a href="#" class="botao"> saiba mais</a>
-                    </div>
-            </li>
-        </ul>
-    </section>
-
-
-	<section id="secao-conversordemoedas">
-		<form action="#">
-			<h3>Conversor de Modeda</h3>
-			<input type="text" name="" id="valor_primario">
-			<select name="" id="moeda_primaria">
-				<option value="USD">Dolar (EUA)</option>
-				<option value="BRL">Real Brasileiro</option>
-				<option value="EUR">Euro</option>
-			</select>
-			<input type="text" name="" id="valor_secundario">
-			<select name="" id="moeda_secundaria">
-				<option value="USD">Dolar (EUA)</option>
-				<option value="BRL">Real Brasileiro</option>
-				<option value="EUR">Euro</option>
-			</select>
-
-		</form>
-	</section>
+		</section>
+	
+	
+		<section id="secao-conversordemoedas">
+			<form action="#">
+				<h3>Conversor de Modeda</h3>
+				<input type="text" name="" id="valor_primario">
+				<select name="" id="moeda_primaria">
+					<option value="USD">Dolar (EUA)</option>
+					<option value="BRL">Real Brasileiro</option>
+					<option value="EUR">Euro</option>
+				</select>
+				<input type="text" name="" id="valor_secundario">
+				<select name="" id="moeda_secundaria">
+					<option value="USD">Dolar (EUA)</option>
+					<option value="BRL">Real Brasileiro</option>
+					<option value="EUR">Euro</option>
+				</select>
+	
+			</form>
+		</section>
+		</main>
 
 </body>
 <script src="/assets/js/script.js"></script>
+<script src="./assets/js/menu.js"></script>
 </html>
