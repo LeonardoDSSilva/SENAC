@@ -264,19 +264,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if (senhas.size() == 0) {
             lbl_SenhaChamada.setText("NÃO HÁ SENHAS");
             lbl_SenhaChamada.setForeground(new java.awt.Color(255, 0, 0));
+    private String calcularTempoEspera(int quantSenhasChamadas) {
 
+        int totalMinutos = 0;
+
+        if (quantSenhasChamadas > 0) {
+            for( int i = 0; i < quantSenhasChamadas; i++ ) {
+
+                
+                long tempoEspera = (long) tbl_Exibicao.getModel().getValueAt(i, 1);
+                totalMinutos += tempoEspera;
+            }
+            long mediaMinutos = totalMinutos / quantSenhasChamadas;
+            return String.format("%d minutos", totalMinutos > 0 ? totalMinutos : 0);
         }
+        return "0 minutos";
+
     }
     
-    private void btn_NormalActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        int senhaNormal = senhas.stream().filter(s -> s.getTipoSenha().equals("NORMAL")).toArray().length;
-        senhas.add(new Senha( String.format("N%04d", senhaNormal + 1), "NORMAL", LocalTime.now()));
-        lbl_Senha.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Senha.setText(senhas.get(senhas.size() - 1).getSenha());
-        lbl_UltimaSenhaChamada.setText(senhas.get(senhas.size() - 1).getSenha());
-
-    }
-
     /**
      * @param args the command line arguments
      */
