@@ -4,12 +4,10 @@
  */
 package ldss.ado02.views;
 
-import java.lang.reflect.Array;
-import java.time.LocalDate;
+import java.awt.Color;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 
 import ldss.ado02.models.Senha;
 
@@ -20,12 +18,17 @@ import ldss.ado02.models.Senha;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     ArrayList<Senha> senhas = new ArrayList<Senha>();
+    
+    int senhaNormal = 0;
+    int senhaPreferencial = 0;
     int chamadaNormal = 0;
-    int chamadaPreferencial = 0;
+    Boolean chamadaPreferencial = true;
+    String ultimaSenhaChamadaPreferencial = "";
+    String ultimaSenhaChamadaNormal = "";
+    int quantSenhasChamadasPreferencial = 0;
+    int quantSenhasChamadasNormal = 0;
 
-    /**
-     * Creates new form TelaPrincipal
-     */
+
     public TelaPrincipal() {
         initComponents();
     }
@@ -39,28 +42,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         btn_Normal = new javax.swing.JButton();
         btn_Preferencial = new javax.swing.JButton();
         lbl_Senha = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lbl_TempoEsperaPrevisto = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lbl_UltimaSenhaChamada = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btn_Chamar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_Normal = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tbl_Preferencial = new javax.swing.JTable();
         lbl_SenhaChamada = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbl_Exibicao = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lbl_UltimaSenhaChamada1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lbl_USCP = new javax.swing.JLabel();
+        lbl_TMESPP = new javax.swing.JLabel();
+        lbl_USCN = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        btn_Normal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btn_Normal.setText("NORMAL");
         btn_Normal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +81,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btn_Preferencial.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btn_Preferencial.setText("PREFERENCIAL");
         btn_Preferencial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,71 +90,57 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         lbl_Senha.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lbl_Senha.setText("jLabel1");
+        lbl_Senha.setText("  ");
 
         jLabel2.setText("SENHA:");
 
-        jLabel3.setText("TEMPO DE ESPERA PREVISTO:");
-
-        lbl_TempoEsperaPrevisto.setText("jLabel4");
-
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel5.setText("ULTIMA SENHA CHAMADA:");
 
-        lbl_UltimaSenhaChamada.setText("jLabel6");
+        lbl_UltimaSenhaChamada.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_UltimaSenhaChamada.setText("    ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_TempoEsperaPrevisto, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(278, 278, 278))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lbl_Senha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_Normal, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(44, 44, 44)
-                                    .addComponent(btn_Preferencial, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_UltimaSenhaChamada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(54, 54, 54))
+                    .addComponent(btn_Normal, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(lbl_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_UltimaSenhaChamada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Preferencial, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_Senha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbl_UltimaSenhaChamada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(11, 11, 11)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_TempoEsperaPrevisto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Preferencial, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Normal, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_UltimaSenhaChamada)
+                        .addGap(187, 187, 187))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_Senha)
+                        .addGap(101, 101, 101)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_Normal, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_Preferencial, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("SENHA", jPanel1);
 
+        btn_Chamar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_Chamar.setText("CHAMAR");
         btn_Chamar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,72 +148,141 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        tbl_Normal.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "SENHA", "TEMPO DE ESPERA"
-            }
-        ));
-        jScrollPane1.setViewportView(tbl_Normal);
-
-        tbl_Preferencial.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "SENHA", "TEMPO DE ESPERA"
-            }
-        ));
-        jScrollPane3.setViewportView(tbl_Preferencial);
-
         lbl_SenhaChamada.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lbl_SenhaChamada.setText("jLabel1");
+        lbl_SenhaChamada.setText("     ");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("SENHA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_Chamar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_SenhaChamada, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lbl_SenhaChamada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Chamar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_SenhaChamada, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Chamar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)))
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addComponent(lbl_SenhaChamada, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(btn_Chamar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
 
         jTabbedPane1.addTab("CHAMADA", jPanel2);
+
+        tbl_Exibicao.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "SENHA", "TEMPO DE ESPERA"
+            }
+        ));
+        jScrollPane3.setViewportView(tbl_Exibicao);
+
+        jLabel4.setText("UTIMAS SENHAS CHAMADA:");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel6.setText("ULTIMA SENHA CHAMADA:");
+
+        lbl_UltimaSenhaChamada1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_UltimaSenhaChamada1.setText("    ");
+
+        jLabel7.setText("PREFERENCIAL:");
+
+        jLabel8.setText("NORMAL:");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel11.setText("ULTIMA SENHA CHAMADA:");
+
+        lbl_USCP.setText("   ");
+
+        lbl_TMESPP.setText("   ");
+
+        lbl_USCN.setText("    ");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbl_UltimaSenhaChamada1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel8)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbl_USCN))
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(lbl_USCP))
+                                        .addComponent(lbl_TMESPP)))))))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel4)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_UltimaSenhaChamada1)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_USCP)
+                        .addGap(35, 35, 35)
+                        .addComponent(lbl_TMESPP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_USCN))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("EXIBICAO", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,65 +292,92 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btn_PreferencialActionPerformed(java.awt.event.ActionEvent evt) {
-        int senhaPreferencial = senhas.stream().filter(s -> s.getTipoSenha().equals("PREFERENCIAL")).toArray().length;
-        senhas.add(new Senha( String.format("P%04d", senhaPreferencial + 1), "PREFERENCIAL", LocalTime.now()));
+//        chamadaPreferencial = true;
+        senhas.add(new Senha( String.format("P%04d", ++senhaPreferencial), "PREFERENCIAL", LocalTime.now()));
         lbl_Senha.setText(senhas.get(senhas.size() - 1).getSenha());
         lbl_Senha.setForeground(new java.awt.Color(255, 0, 0));
         lbl_UltimaSenhaChamada.setText(senhas.get(senhas.size() - 1).getSenha());
+
+        lbl_UltimaSenhaChamada.setText(ultimaSenhaChamadaPreferencial);
+
+
+        btn_Chamar.setEnabled(true);
+    }
+    
+    private void btn_NormalActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        senhas.add(new Senha( String.format("N%04d", ++senhaNormal), "NORMAL", LocalTime.now()));
+        lbl_Senha.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Senha.setText(senhas.get(senhas.size() - 1).getSenha());
+        lbl_UltimaSenhaChamada.setText(senhas.get(senhas.size() - 1).getSenha());
+
+        btn_Chamar.setEnabled(true);
+        lbl_UltimaSenhaChamada.setText(ultimaSenhaChamadaNormal);
+
+
     }
 
     private void btn_ChamarActionPerformed(java.awt.event.ActionEvent evt) {
-        // int senhaNormal = senhas.stream().filter(s -> s.getTipoSenha().equals("NORMAL")).toArray().length;
 
-        // Chama a senha preferencial a cada 5 senhas normais
+        System.out.println(senhas.size());
         
+        // ArrayList <Senha> senhaPreferencial =  senhas.stream().filter(s -> s.getTipoSenha().equals("PREFERENCIAL")).collect(Collectors.toCollection(ArrayList::new));
+        // ArrayList <Senha> senhaNormal =  senhas.stream().filter(s -> s.getTipoSenha().equals("NORMAL")).collect(Collectors.toCollection(ArrayList::new));
+        
+        // Chama a senha preferencial a cada 5 senhas normais
+        int qtdPreferencial =  senhas.stream().filter(s -> s.getTipoSenha().equals("PREFERENCIAL")).toArray().length;
+        int qtdNormal =  senhas.stream().filter(s -> s.getTipoSenha().equals("NORMAL")).toArray().length;
+        
+        if (qtdNormal == 0) chamadaPreferencial = true;
 
+        if (qtdPreferencial == 0) {
+            chamadaNormal = 0;
+            chamadaPreferencial = false;
+        }
+       
         for (Senha senha : senhas) {
-            if (senha.getTipoSenha().equals("NORMAL") && chamadaNormal == 4 ) {
-                chamadaNormal ++;
-                lbl_UltimaSenhaChamada.setText(senha.getSenha());
-                lbl_UltimaSenhaChamada.setForeground(new java.awt.Color(255, 0, 0));
-                break;
-            } else {
-                
-                lbl_UltimaSenhaChamada.setText(senha.getSenha());
-                lbl_UltimaSenhaChamada.setForeground(new java.awt.Color(0, 0, 0));
+
+            if (senha.getTipoSenha().equals("PREFERENCIAL") && qtdPreferencial > 0 && chamadaPreferencial) {
+
+                chamarSenha(senha, new java.awt.Color(255, 0, 0));
+                ultimaSenhaChamadaPreferencial = senha.getSenha();
+                lbl_USCP.setText(ultimaSenhaChamadaPreferencial);
+                chamadaPreferencial = false;
+                senhas.remove(senha);
                 chamadaNormal = 0;
-            }
-
-            long tempoEspera = senha.getHoraGeracao().until(LocalTime.now(), ChronoUnit.SECONDS);
-            lbl_SenhaChamada.setText(senha.getSenha());
-            if (senha.getTipoSenha().equals("NORMAL")) {
-                lbl_SenhaChamada.setForeground(new java.awt.Color(0, 0, 0));
-                ((javax.swing.table.DefaultTableModel) tbl_Normal.getModel()).addRow(new Object[] { senha.getSenha(), tempoEspera });
-            } else {
-                lbl_SenhaChamada.setForeground(new java.awt.Color(255, 0, 0));
-                ((javax.swing.table.DefaultTableModel) tbl_Preferencial.getModel()).addRow(new Object[] { senha.getSenha(), tempoEspera });
-            }
-            senhas.remove(senha);
-        }
-        if (senhas.size() == 0) {
-            lbl_SenhaChamada.setText("NÃO HÁ SENHAS");
-            lbl_SenhaChamada.setForeground(new java.awt.Color(255, 0, 0));
-    private String calcularTempoEspera(int quantSenhasChamadas) {
-
-        int totalMinutos = 0;
-
-        if (quantSenhasChamadas > 0) {
-            for( int i = 0; i < quantSenhasChamadas; i++ ) {
-
+                break;
                 
-                long tempoEspera = (long) tbl_Exibicao.getModel().getValueAt(i, 1);
-                totalMinutos += tempoEspera;
+            } else if (senha.getTipoSenha().equals("NORMAL") && qtdNormal > 0 && ( chamadaNormal <= 5 || qtdPreferencial == 0) && !chamadaPreferencial) {
+                
+                chamarSenha(senha, new java.awt.Color(0, 0, 0));
+                ultimaSenhaChamadaNormal = senha.getSenha();
+                lbl_USCN.setText(ultimaSenhaChamadaNormal);                
+                senhas.remove(senha);
+                chamadaNormal ++;
+                break;
             }
-            long mediaMinutos = totalMinutos / quantSenhasChamadas;
-            return String.format("%d minutos", totalMinutos > 0 ? totalMinutos : 0);
         }
-        return "0 minutos";
 
+        if (senhas.size() == 0) {
+            lbl_SenhaChamada.setText("NÃO HÁ SENHA");
+            lbl_SenhaChamada.setForeground(new java.awt.Color(255, 0, 0));
+            btn_Chamar.setEnabled(false);
+        }
+
+        if (chamadaNormal == 5) {
+            chamadaPreferencial = true;
+        }
     }
-    
+
+    private void chamarSenha(Senha senha, Color color) {
+        lbl_SenhaChamada.setText(senha.getSenha());
+        lbl_SenhaChamada.setForeground(color);
+        long tempoEspera = ChronoUnit.MINUTES.between(senha.getHoraGeracao(), LocalTime.now());
+        ((javax.swing.table.DefaultTableModel) tbl_Exibicao.getModel()).addRow(new Object[] { senha.getSenha(), tempoEspera });
+    }
+
+
     /**
      * @param args the command line arguments
      */
@@ -321,19 +417,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_Chamar;
     private javax.swing.JButton btn_Normal;
     private javax.swing.JButton btn_Preferencial;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lbl_Senha;
     private javax.swing.JLabel lbl_SenhaChamada;
-    private javax.swing.JLabel lbl_TempoEsperaPrevisto;
+    private javax.swing.JLabel lbl_TMESPP;
+    private javax.swing.JLabel lbl_USCN;
+    private javax.swing.JLabel lbl_USCP;
     private javax.swing.JLabel lbl_UltimaSenhaChamada;
-    private javax.swing.JTable tbl_Normal;
-    private javax.swing.JTable tbl_Preferencial;
+    private javax.swing.JLabel lbl_UltimaSenhaChamada1;
+    private javax.swing.JTable tbl_Exibicao;
     // End of variables declaration//GEN-END:variables
 }
