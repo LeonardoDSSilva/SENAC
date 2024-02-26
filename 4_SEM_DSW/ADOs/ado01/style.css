@@ -1,0 +1,142 @@
+:root {
+	--main-bg-color: #333;
+	--color-primary: #f5deb3;
+	--color-secondary: #f4a460;
+	--color-black: #000;
+	--main-secondary-bg-color: #444;
+	--main-text-color: #f4f4f4;
+	--main-accent-color: #ff0000;
+	--main-font: 'Arial', sans-serif;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--main-bg-color);
+	color: var(--main-text-color);
+	font-family: var(--main-font);
+	width: 100%;
+}
+
+header {
+	padding: 1rem;
+
+	text-align: center;
+	font-weight: normal;
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 2rem;
+	padding: 0 15rem;
+	min-width: 550px;
+}
+
+div:first-child {
+	background-color: var(--main-text-color);
+	color: #000;
+	min-width: 300px;
+	height: 400px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}
+
+div:first-child img {
+	width: 100%;
+	border-radius: 10px 10px 0 0;
+	height: 250px;
+	object-fit: cover;
+	padding-bottom: 1rem;
+}
+
+div:first-child section {
+	padding-left: 1rem;
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+div:first-child i {
+	color: var(--color-black);
+}
+
+div:not(:first-child) {
+	background-color: var(--main-secondary-bg-color);
+	width: 100%;
+	min-width: 550px;
+	padding: 2rem;
+	border-radius: 10px;
+}
+
+article {
+	margin-bottom: 2rem;
+	border: #f5deb3 2px solid;
+	border-radius: 5px;
+	padding: 1rem;
+	width: 100%;
+}
+
+article h2 {
+	color: var(--color-primary);
+	padding-top: 5px;
+	padding-bottom: 2.5px;
+}
+
+article section {
+	padding: .5rem;
+}
+
+article h3,
+span {
+	display: inline-block;
+	padding-left: 1rem;
+}
+
+
+article table {
+	width: 100%;
+	padding: .5rem;
+}
+
+article table th:not(:last-child),
+article table td:not(:last-child) {
+	border-right: 1px solid var(--color-primary);
+	text-align: left;
+	padding: .5rem;
+}
+
+.brands {
+	background-color: var(--color-primary);
+	color: var(--color-black);
+	border-radius: 5px;
+}
+
+.tags {
+	color: var(--color-secondary);
+}
+
+@media screen and (max-width: 860px) {
+	main {
+		flex-direction: column;
+		padding: 0 1rem;
+		gap: 15px;
+	}
+
+	div:first-child {
+		width: 100%;
+	}
+
+	div:not(:first-child) {
+		width: 100%;
+		padding: 1rem;
+	}
+
+}
