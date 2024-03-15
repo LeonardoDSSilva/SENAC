@@ -1,39 +1,35 @@
 package cliente;
 
 import modelo.Carga;
+import strategy.ABC;
+import strategy.CBA;
+import strategy.CalcularFrete;
+import strategy.XPTO;
 
 public class Cliente {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Carga carga = new Carga(12, "LIVROS");
+        System.out.println(calcularFrete("ABC", carga));
+        System.out.println(calcularFrete("CBA", carga));
+        System.out.println(calcularFrete("XPTO", carga));
+        System.out.println(calcularFrete("FDSS", carga));
+
     }
 
     public static double calcularFrete( String nomeEmpresa, Carga carga) {
+        CalcularFrete empresa;
         if (nomeEmpresa.equals("ABC")) {
-            if (carga.getPeso() <= 10) {
-                return 12.56;
-            } else if (carga.getPeso() <= 10) {
-                return 14.78;
-            } else {
-                return 17.64;
-            }
+            empresa = new ABC();
+            
         } else if (nomeEmpresa.equals("CBA")) {
-            if (carga.getPeso() <= 10) {
-                return 10.12;
-            } else if (carga.getPeso() <= 10) {
-                return 12.34;
-            } else {
-                return 15.09;
-            }
+            empresa = new CBA();
+            
         } else if (nomeEmpresa.equals("XPTO")) {
-            if (carga.getPeso() <= 10) {
-                return 14.77;
-            } else if (carga.getPeso() <= 10) {
-                return 16.82;
-            } else {
-                return 18.13;
-            }
+            empresa = new XPTO();
+            
         } else {
-           throw new IllegalArgumentException("Empresa desconhecida");
+            throw new IllegalArgumentException("Empresa desconhecida");
         }
+        return empresa.calcularFrete(carga);
     }
 }
