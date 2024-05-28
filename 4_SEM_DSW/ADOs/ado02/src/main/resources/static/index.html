@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TADS DSW - Prova 1</title>
+	<style>
+		titulo {
+			color: red;
+		}
+
+		#titulo {
+			color: green;
+		}
+
+		.titulo {
+			color: blue;
+		}
+
+		[title] {
+			color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<h1 id="titulo">Prova 1 - Turma A</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>E-mail</th>
+				</tr>
+			</thead>
+			<tbody id="resultado"></tbody>
+		</table>
+	</main>
+	<script>
+		async function obterDados() {
+			const httpResult = await fetch('/contatos');
+			if (!httpResult.ok) {
+				alert('Erro ao obter dados');
+				return;
+			}
+			const dados = await httpResult.json();
+			const elTbody = document.getElementById('resultado');
+			elTbody.innerHTML = '';
+			dados.forEach(contato => {
+				const elTr = document.createElement('tr');
+				elTr.innerHTML = `
+					<td>${contato.nome}</td>
+					<td>${contato.email}</td>
+				`;
+				elTbody.appendChild(elTr);
+			});
+		}
+
+		document.addEventListener('DOMContentLoaded', obterDados);
+	</script>
+</body>
+
+</html>
